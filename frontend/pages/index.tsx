@@ -1,18 +1,37 @@
 import type { NextPage } from 'next';
-import Image from 'next/image';
-import Moment from 'react-moment';
+import { useState } from 'react';
+import Articles from '../components/Articles';
 import Layout from '../components/Layout';
-import { fetchAPI, getStrapiURL } from '../lib/api';
-import 'moment/locale/pt-br';
+import { fetchAPI } from '../lib/api';
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ articles, categories, homepage }: any) => {
+  const [articlesList, setArticlesList] = useState<any[]>(articles);
+  const [actualPage, setActualPage] = useState(1);
+
+  const getMoreArticles = async () => {
+    const newArticlesRes = await fetchAPI('/articles', {
+      populate: '*',
+      sort: ['publishedAt:desc'],
+      pagination: {
+        page: actualPage + 1,
+        pageSize: 5,
+      },
+    });
+
+    const newArticles: any[] = newArticlesRes.data;
+    if (newArticles.length > 0) {
+      setActualPage((old) => old + 1);
+      setArticlesList((oldList) => oldList.concat(newArticles));
+    }
+  };
+
   return (
     <Layout>
       <div className="py-20">
         <h1 className="text-5xl">Seja bem vindo!</h1>
         <h2 className="text-2xl max-w-xl text-zinc-500 mt-2">
-          Estou muito feliz em poder compartilhar minhas experiencias com você,
-          espero que possa te ajudar em alguma coisa
+          Estou muito feliz em poder compartilhar minhas experiencias com você, espero que possa te
+          ajudar em alguma coisa
         </h2>
       </div>
       <div className="flex flex-row justify-between mb-8">
@@ -22,13 +41,8 @@ const Home: NextPage = () => {
 
         <label className="relative block w-60 items-center">
           <span className="sr-only">Search</span>
-          <span className="absolute inset-y-3 top-0 left-0 flex items-center pl-2">
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+          <span className="absolute h-[90%] top-0 left-0 flex items-center pl-2">
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -46,45 +60,25 @@ const Home: NextPage = () => {
         </label>
       </div>
 
-      <div>
-        <div className="flex flex-row items-center mt-3 hover:underline hover:underline-offset-2 hover:cursor-pointer transition-all ease-in-out delay-75 p-2 rounded">
-          <div className="relative overflow-hidden w-[200px] h-[160px]">
-            <Image
-              src={getStrapiURL(
-                '/uploads/3f24173a2290c80805492ce6c5db0e92_ca327c62cb.png?updated_at=2022-01-19T21:21:41.529Z'
-              )}
-              alt="image"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-          <div className="flex flex-col p-4 px-8 max-w-2xl">
-            <span className="text-2xl">
-              Como eu transformei a cultura de uma empresa usando Clean
-              Architecture
-            </span>
-            <span className="text-base font-sans mt-2 break-normal">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita
-              quis voluptatibus alias fugit obcaecati ad, ipsam voluptas
-              laboriosam eligendi cumque eum maiores debitis aperiam, velit
-              fuga! Quaerat voluptatum minus esse!
-            </span>
-            <span className="font-sans pt-2 text-gray-600 font-medium">
-              <Moment locale="pt-br" format="LL">
-                {new Date()}
-              </Moment>
-            </span>
-          </div>
-        </div>
-      </div>
+      <Articles articles={articlesList} />
+
+      <button onClick={getMoreArticles} type="button">
+        Load more
+      </button>
     </Layout>
   );
 };
 
 export async function getStaticProps() {
-  // Run API calls in parallel
   const [articlesRes, categoriesRes, homepageRes] = await Promise.all([
-    fetchAPI('/articles', { populate: '*' }),
+    fetchAPI('/articles', {
+      populate: '*',
+      sort: ['publishedAt:desc'],
+      pagination: {
+        page: 1,
+        pageSize: 5,
+      },
+    }),
     fetchAPI('/categories', { populate: '*' }),
     fetchAPI('/homepage', {
       populate: {
@@ -103,5 +97,32 @@ export async function getStaticProps() {
     revalidate: 1,
   };
 }
+
+// export async function getServerSideProps({ params, query, ...props }: any) {
+//   const [articlesRes, categoriesRes, homepageRes] = await Promise.all([
+//     fetchAPI('/articles', {
+//       populate: '*',
+//       pagination: {
+//         page: query.page,
+//         pageSize: 5,
+//       },
+//     }),
+//     fetchAPI('/categories', { populate: '*' }),
+//     fetchAPI('/homepage', {
+//       populate: {
+//         hero: '*',
+//         seo: { populate: '*' },
+//       },
+//     }),
+//   ]);
+
+//   return {
+//     props: {
+//       articles: articlesRes.data,
+//       categories: categoriesRes.data,
+//       homepage: homepageRes.data,
+//     },
+//   };
+// }
 
 export default Home;
