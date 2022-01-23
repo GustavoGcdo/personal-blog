@@ -1,10 +1,10 @@
-import React from 'react';
 import Link from 'next/link';
+import React from 'react';
 
 const Nav = () => {
   return (
     <div>
-      <nav className="flex flex-row justify-between py-5 items-center">
+      <nav className="flex flex-row justify-between py-5 items-center font-primary">
         <div className="text-2xl">
           <Link href="/">
             <a>Gustavo Oliveira</a>

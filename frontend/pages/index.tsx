@@ -28,7 +28,7 @@ const Home: NextPage = ({ articles, categories, homepage }: any) => {
   return (
     <Layout>
       <div className="py-20">
-        <h1 className="text-5xl">Seja bem vindo!</h1>
+        <h1 className="text-5xl font-primary">Seja bem vindo!</h1>
         <h2 className="text-2xl max-w-xl text-zinc-500 mt-2">
           Estou muito feliz em poder compartilhar minhas experiencias com você, espero que possa te
           ajudar em alguma coisa
@@ -36,7 +36,7 @@ const Home: NextPage = ({ articles, categories, homepage }: any) => {
       </div>
       <div className="flex flex-row justify-between mb-8">
         <span className="before:block before:absolute before:-inset-1 before:top-7 before:left-3 before:bg-amber-200 relative inline-block">
-          <span className="relative text-4xl text-black">Posts</span>
+          <span className="relative text-4xl text-black font-primary">Posts</span>
         </span>
 
         <label className="relative block w-60 items-center">
@@ -62,9 +62,11 @@ const Home: NextPage = ({ articles, categories, homepage }: any) => {
 
       <Articles articles={articlesList} />
 
-      <button onClick={getMoreArticles} type="button">
-        Load more
-      </button>
+      <div className='font-display'>
+        <button onClick={getMoreArticles} type="button">
+          Load more
+        </button>
+      </div>
     </Layout>
   );
 };

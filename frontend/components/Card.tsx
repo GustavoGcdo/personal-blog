@@ -1,8 +1,8 @@
+import 'moment/locale/pt-br';
 import Image from 'next/image';
+import Link from 'next/link';
 import Moment from 'react-moment';
 import { getStrapiURL } from '../lib/api';
-import Link from 'next/link';
-import 'moment/locale/pt-br';
 import { getStrapiMedia } from '../lib/media';
 
 const Card = ({ article }: any) => {
