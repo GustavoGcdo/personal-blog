@@ -12,7 +12,7 @@ const Card = ({ article }: any) => {
         <div className="relative overflow-hidden w-[200px] h-[160px]">
           {article.attributes?.image?.data ? (
             <Image
-              src={getStrapiMedia(article.attributes.image)}
+              src={getStrapiMedia(article.attributes.image, 'thumbnail')}
               alt="image"
               layout="fill"
               objectFit="cover"

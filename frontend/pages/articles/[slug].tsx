@@ -7,10 +7,10 @@ import { fetchAPI, getStrapiURL } from '../../lib/api';
 
 const ArticlePage = ({ article, categories }: any) => {
   const router = useRouter();
-
+  
   const getContent = () => {
     const finalUrl = getStrapiURL('/uploads/');
-    const replaced = article.attributes.content.replaceAll('/uploads/', finalUrl);
+    const replaced = article.attributes.content.replace(new RegExp('/uploads/', 'g'), finalUrl);
     return replaced;
   };
 

@@ -7,6 +7,7 @@ import { fetchAPI } from '../lib/api';
 const Home: NextPage = ({ articles, categories, homepage }: any) => {
   const [articlesList, setArticlesList] = useState<any[]>(articles);
   const [actualPage, setActualPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
 
   const getMoreArticles = async () => {
     const newArticlesRes = await fetchAPI('/articles', {
@@ -22,6 +23,8 @@ const Home: NextPage = ({ articles, categories, homepage }: any) => {
     if (newArticles.length > 0) {
       setActualPage((old) => old + 1);
       setArticlesList((oldList) => oldList.concat(newArticles));
+    } else {
+      setHasMore(false);
     }
   };
 
@@ -62,11 +65,22 @@ const Home: NextPage = ({ articles, categories, homepage }: any) => {
 
       <Articles articles={articlesList} />
 
-      <div className='font-display'>
-        <button onClick={getMoreArticles} type="button">
-          Load more
-        </button>
-      </div>
+      {hasMore && (
+        <div
+          className="flex flex-row items-center font-primary text-xl cursor-pointer"
+          onClick={getMoreArticles}
+        >
+          <span>Carregar mais</span>
+          <svg className="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </div>
+      )}
     </Layout>
   );
 };
@@ -99,32 +113,5 @@ export async function getStaticProps() {
     revalidate: 1,
   };
 }
-
-// export async function getServerSideProps({ params, query, ...props }: any) {
-//   const [articlesRes, categoriesRes, homepageRes] = await Promise.all([
-//     fetchAPI('/articles', {
-//       populate: '*',
-//       pagination: {
-//         page: query.page,
-//         pageSize: 5,
-//       },
-//     }),
-//     fetchAPI('/categories', { populate: '*' }),
-//     fetchAPI('/homepage', {
-//       populate: {
-//         hero: '*',
-//         seo: { populate: '*' },
-//       },
-//     }),
-//   ]);
-
-//   return {
-//     props: {
-//       articles: articlesRes.data,
-//       categories: categoriesRes.data,
-//       homepage: homepageRes.data,
-//     },
-//   };
-// }
 
 export default Home;
