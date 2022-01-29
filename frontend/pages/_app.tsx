@@ -2,6 +2,7 @@ import type { AppContext, AppProps } from 'next/app';
 import App from 'next/app';
 import { createContext } from 'react';
 import { fetchAPI } from '../lib/api';
+import 'normalize.css/normalize.css';
 import '../styles/globals.css';
 
 export const GlobalContext = createContext({});

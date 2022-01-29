@@ -19,6 +19,13 @@
     },
     "content": {
       "type": "richtext"
+    },
+    "img_perfil": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
