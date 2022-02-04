@@ -26,9 +26,9 @@ const ArticlePage = ({ article, categories }: any) => {
       <Seo seo={seo} />
       <BackButton />
       <div className="flex flex-col sm:mt-5 mt-8 mb-14">
-        <span className="block text-black text-4xl font-bold">{article.attributes.title}</span>
-        <span className="text-gray-500 mt-2 text-xl">{article.attributes.description}</span>
-        <span className="text-sm font-sans mt-2 w-fit py-1 rounded bg-gray-200 px-2 text-gray-700 font-medium">
+        <span className="block text-black dark:text-white text-4xl font-bold">{article.attributes.title}</span>
+        <span className="text-gray-500 dark:text-gray-300 mt-2 text-xl">{article.attributes.description}</span>
+        <span className="text-sm font-sans mt-2 w-fit py-1 rounded dark:bg-amber-600 bg-gray-200 px-2 dark:text-white text-gray-700 font-medium">
           <Moment locale="pt-br" format="LL">
             {article.attributes.publishedAt}
           </Moment>{' '}
@@ -36,7 +36,7 @@ const ArticlePage = ({ article, categories }: any) => {
         </span>
       </div>
 
-      <div className="mt-5 prose prose-lg prose-p:font-sans max-w-none mx-auto prose-h1:mt-10 prose-img:w-1/2 prose-img:mx-auto">
+      <div className="mt-5 prose prose-lg dark:prose-invert prose-p:font-sans max-w-none mx-auto prose-h1:mt-10 prose-img:w-1/2 prose-img:mx-auto">
         <ReactMarkdown>{getContent()}</ReactMarkdown>
       </div>
     </Layout>

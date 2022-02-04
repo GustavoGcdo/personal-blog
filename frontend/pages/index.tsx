@@ -34,18 +34,18 @@ const Home: NextPage = ({ articles, categories, homepage }: any) => {
     <Layout>
       <Seo seo={homepage.attributes.seo} />
       <div className="sm:py-20 py-10 mb-4">
-        <h1 className="sm:text-5xl text-4xl font-primary">
+        <h1 className="sm:text-5xl text-4xl font-primary dark:text-white">
           {homepage.attributes.hero.title || homepage_default.title}
         </h1>
-        <h2 className="sm:text-1xl text-xl max-w-lg text-zinc-500 mt-2">
+        <h2 className="sm:text-1xl text-xl max-w-lg text-zinc-500 dark:text-gray-300 mt-2">
           {homepage.attributes.hero.subtitle || homepage_default.subtitle}
         </h2>
       </div>
 
       <div>
         <div className="flex flex-row justify-between mb-8">
-          <span className="before:block before:absolute before:-inset-1 before:top-7 before:left-3 before:bg-amber-200 relative inline-block">
-            <span className="relative text-4xl text-black font-primary">Posts</span>
+          <span className="before:block before:absolute before:-inset-1 before:top-7 before:left-3 dark:before:bg-amber-400 before:bg-amber-200 relative inline-block">
+            <span className="relative text-4xl text-black dark:text-white font-primary">Posts</span>
           </span>
         </div>
 

@@ -3,7 +3,7 @@ import Document, { Head, Html, Main, NextScript } from 'next/document';
 class MyDocument extends Document {
   render() {
     return (
-      <Html className='dark'>
+      <Html>
         <Head>
           {/* eslint-disable-next-line */}
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Staatliches" />
@@ -12,7 +12,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body className='dark:bg-black'>
+        <body className='dark:bg-stone-900 dark:text-white'>
           <Main />
           <NextScript />
         </body>

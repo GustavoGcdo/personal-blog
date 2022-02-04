@@ -21,10 +21,10 @@ const Card = ({ article }: any) => {
         </div>
         <div className="flex flex-col sm:px-8 px-4 max-w-2xl w-full">
           <span className="block sm:text-2xl text-lg font-bold group-hover:underline group-hover:underline-offset-2">{article?.attributes?.title}</span>
-          <span className="sm:block hidden text-base font-sans mt-2 break-normal text-gray-600">
+          <span className="sm:block hidden text-base font-sans mt-2 break-normal dark:text-gray-200 text-gray-600">
             {article.attributes.description}
           </span>
-          <span className="block group-hover:no-underline sm:text-sm text-xs font-sans mt-3 w-fit text-gray-400">
+          <span className="block group-hover:no-underline sm:text-sm text-xs font-sans mt-3 w-fit dark:text-gray-400 text-gray-400">
             <span>
               <Moment locale="pt-br" format="LL">
                 {article.attributes.publishedAt}
