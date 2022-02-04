@@ -4,11 +4,27 @@ import { createContext } from 'react';
 import { fetchAPI } from '../lib/api';
 import 'normalize.css/normalize.css';
 import '../styles/globals.css';
+import { getStrapiMedia } from '../lib/media';
+import Head from 'next/head';
 
-export const GlobalContext = createContext({});
+export const GlobalContext = createContext<any>({});
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  const { global } = pageProps
+
+  return (
+    <>
+      {global.attributes.favicon && <Head>
+        <link
+          rel="shortcut icon"
+          href={getStrapiMedia(global.attributes.favicon)}
+        />
+      </Head>}
+      <GlobalContext.Provider value={global.attributes}>
+        <Component {...pageProps} />
+      </GlobalContext.Provider>
+    </>
+  )
 }
 
 MyApp.getInitialProps = async (ctx: AppContext) => {

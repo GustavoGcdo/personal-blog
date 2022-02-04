@@ -3,10 +3,18 @@ import ReactMarkdown from 'react-markdown';
 import Moment from 'react-moment';
 import BackButton from '../../components/BackButton';
 import Layout from '../../components/Layout';
+import Seo from '../../components/Seo';
 import { fetchAPI, getStrapiURL } from '../../lib/api';
 import { countReadMinutes } from '../../lib/word-read-calc';
 
 const ArticlePage = ({ article, categories }: any) => {
+  const seo = {
+    metaTitle: article.attributes.title,
+    metaDescription: article.attributes.description,
+    shareImage: article.attributes.image,
+    article: true,
+  };
+
   const getContent = () => {
     const finalUrl = getStrapiURL('/uploads/');
     const replaced = article.attributes.content.replace(new RegExp('/uploads/', 'g'), finalUrl);
@@ -14,8 +22,9 @@ const ArticlePage = ({ article, categories }: any) => {
   };
 
   return (
-    <Layout>   
-      <BackButton />   
+    <Layout>
+      <Seo seo={seo} />
+      <BackButton />
       <div className="flex flex-col sm:mt-5 mt-8 mb-14">
         <span className="block text-black text-4xl font-bold">{article.attributes.title}</span>
         <span className="text-gray-500 mt-2 text-xl">{article.attributes.description}</span>

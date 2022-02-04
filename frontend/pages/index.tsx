@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import { useState } from 'react';
 import Articles from '../components/Articles';
 import Layout from '../components/Layout';
+import Seo from '../components/Seo';
 import { homepage_default } from '../constants/texts';
 import { fetchAPI } from '../lib/api';
 
@@ -31,6 +32,7 @@ const Home: NextPage = ({ articles, categories, homepage }: any) => {
 
   return (
     <Layout>
+      <Seo seo={homepage.attributes.seo} />
       <div className="sm:py-20 py-10 mb-4">
         <h1 className="sm:text-5xl text-4xl font-primary">
           {homepage.attributes.hero.title || homepage_default.title}

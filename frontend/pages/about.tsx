@@ -2,12 +2,14 @@ import Image from 'next/image';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import Layout from '../components/Layout';
+import Seo from '../components/Seo';
 import { fetchAPI } from '../lib/api';
 import { getStrapiMedia } from '../lib/media';
 
 const About = ({ aboutMe }: any) => {
   return (
     <Layout>
+      <Seo seo={aboutMe.attributes.seo} />
       <h1 className="text-5xl font-primary my-10 self-start mx-auto">Sobre mim</h1>
 
       <div className="grid gap-5 md:grid-cols-3 grid-cols-1">
