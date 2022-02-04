@@ -11,19 +11,17 @@ const Nav = () => {
           </Link>
         </div>
 
-        <div>
-          <ul className="flex flex-row space-x-3 text-lg">
-            <li className="transition-all ease-in-out duration-300 rounded hover:bg-black hover:text-white px-3 py-1">
-              <Link href="/">
-                <a>Página inicial</a>
-              </Link>
-            </li>
-            <li className="transition-all ease-in-out duration-300 rounded hover:bg-black hover:text-white px-3 py-1">
-              <Link href="/about">
-                <a>Sobre mim</a>
-              </Link>
-            </li>          
-          </ul>
+        <div className="flex flex-row space-x-3 text-xl">
+          <Link href="/" passHref>
+            <div className="sm:block hidden border-2 border-stone-800 transition-all ease-in-out duration-300 rounded hover:border-stone-800 hover:bg-stone-800 hover:text-white px-3 py-1 cursor-pointer">
+              <span>Página inicial</span>
+            </div>
+          </Link>
+          <Link href="/about" passHref>
+            <div className="block border-2 border-stone-800 transition-all ease-in-out duration-300 rounded hover:border-stone-800 hover:bg-stone-800 hover:text-white px-3 py-1 cursor-pointer">
+              <span>Sobre mim</span>
+            </div>
+          </Link>
         </div>
       </nav>
     </div>

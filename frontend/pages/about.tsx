@@ -27,14 +27,14 @@ const About = ({ aboutMe }: any) => {
       <h1 className="text-5xl font-primary mt-10 mb-6 self-start mx-auto">Contato</h1>
 
       <p className="font-sans prose prose-lg mb-5">
-        Você pode entrar em contato comigo atravez do meu email:{' '}
+        <span>Você pode entrar em contato comigo atravez do meu email: </span>
         <a href="#" className="font-bold">
           gustavo.gcdo@gmail.com
-        </a>{' '}
-        ou das minhas redes sociais abaixo.
+        </a>
+        <span> ou das minhas redes sociais abaixo.</span>
       </p>
 
-      <div className='flex flex-row gap-3'>
+      <div className="flex flex-row gap-3">
         <Image
           src="/images/logotipo-do-linkedin.svg"
           alt="image"
