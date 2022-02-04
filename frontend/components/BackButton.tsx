@@ -6,7 +6,7 @@ const BackButton = () => {
 
   return (
     <div
-      className="group flex cursor-pointer items-center rounded px-2 w-fit hover:text-white hover:bg-black transition-all ease-in-out"
+      className="group sm:flex hidden cursor-pointer items-center rounded px-3 py-1 w-fit border-2 border-stone-800 hover:text-white hover:bg-stone-800 transition-all ease-in-out"
       onClick={() => router.back()}
     >
       <svg

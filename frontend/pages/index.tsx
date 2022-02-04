@@ -35,7 +35,7 @@ const Home: NextPage = ({ articles, categories, homepage }: any) => {
         <h1 className="sm:text-5xl text-4xl font-primary">
           {homepage.attributes.hero.title || homepage_default.title}
         </h1>
-        <h2 className="sm:text-1xl text-xl max-w-xl text-zinc-500 mt-2">
+        <h2 className="sm:text-1xl text-xl max-w-lg text-zinc-500 mt-2">
           {homepage.attributes.hero.subtitle || homepage_default.subtitle}
         </h2>
       </div>

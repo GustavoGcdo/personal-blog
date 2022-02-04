@@ -14,8 +14,9 @@ const ArticlePage = ({ article, categories }: any) => {
   };
 
   return (
-    <Layout>      
-      <div className="flex flex-col mt-6 mb-14">
+    <Layout>   
+      <BackButton />   
+      <div className="flex flex-col sm:mt-5 mt-8 mb-14">
         <span className="block text-black text-4xl font-bold">{article.attributes.title}</span>
         <span className="text-gray-500 mt-2 text-xl">{article.attributes.description}</span>
         <span className="text-sm font-sans mt-2 w-fit py-1 rounded bg-gray-200 px-2 text-gray-700 font-medium">
