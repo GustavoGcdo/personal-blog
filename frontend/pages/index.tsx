@@ -53,12 +53,12 @@ const Home: NextPage = ({ articles, categories, homepage }: any) => {
 
         {hasMore ? (
           <div
-            className="group w-fit mx-auto px-3 py-1 rounded flex flex-row items-center font-primary text-xl justify-center cursor-pointer border-2 border-stone-800 hover:bg-stone-800 hover:text-white transition-all ease-in-out"
+            className="group w-fit mx-auto px-3 py-1 rounded flex flex-row items-center font-primary text-xl justify-center cursor-pointer border-2 dark:border-white border-stone-800 dark:hover:bg-white dark:hover:text-stone-900 hover:bg-stone-800 hover:text-white transition-all ease-in-out"
             onClick={getMoreArticles}
           >
             <span className="block mr-2">Carregar mais</span>
             <svg
-              className="h-4 w-4 text-black group-hover:text-white"
+              className="h-4 w-4 text-black group-hover:text-white dark:text-white dark:group-hover:text-stone-900"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -72,8 +72,8 @@ const Home: NextPage = ({ articles, categories, homepage }: any) => {
             </svg>
           </div>
         ) : (
-          <div className="mx-auto text-center bg-gray-200 py-2 rounded">
-            <span className="block text-gray-500">Você chegou ao fim dos posts</span>
+          <div className="mx-auto w-fit text-center dark:bg-gray-700 bg-gray-200 px-4 py-2 rounded">
+            <span className="block dark:text-white text-gray-500">Você chegou ao fim dos posts</span>
           </div>
         )}
       </div>
