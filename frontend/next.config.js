@@ -2,7 +2,7 @@
 const nextConfig = {
   images: {
     loader: "default",
-    domains: ["localhost"],
+    domains: ["localhost", "https://gcdoblog-api.herokuapp.com"],
   },
 }
 
