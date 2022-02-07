@@ -1696,6 +1696,15 @@
     "@strapi/utils" "4.0.4"
     sendmail "^1.6.1"
 
+"@strapi/provider-upload-cloudinary@^4.0.7":
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/@strapi/provider-upload-cloudinary/-/provider-upload-cloudinary-4.0.7.tgz#f515cfdeeca98b5ae4262df693dd8b37de5b4c70"
+  integrity sha512-0emA9VyrWx0xnZcyuAWZz1IFBbyy2m8/F0Avjt6NIyptr0s1wvia+W3a5LxjMYvp6xH1yNcKr6GggwQsk5jmDQ==
+  dependencies:
+    "@strapi/utils" "4.0.7"
+    cloudinary "^1.25.1"
+    into-stream "^5.1.0"
+
 "@strapi/provider-upload-local@4.0.4":
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/@strapi/provider-upload-local/-/provider-upload-local-4.0.4.tgz#6ed17d8d331e420c18b45676939354bd83738569"
@@ -1762,6 +1771,17 @@
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/@strapi/utils/-/utils-4.0.4.tgz#bfb505319d9615b7e47a98d80bdaa09f02b89802"
   integrity sha512-BZoOv1RexOOgsUoDVrGVM88AKuJvHItl9HguR3MDS2Rpsiiw0dCIggb2xSnXzg6qLnPYpDGi8SWh5QeSet0SSA==
+  dependencies:
+    "@sindresorhus/slugify" "1.1.0"
+    date-fns "2.24.0"
+    http-errors "1.8.0"
+    lodash "4.17.21"
+    yup "0.32.9"
+
+"@strapi/utils@4.0.7":
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/@strapi/utils/-/utils-4.0.7.tgz#718823fcf23c028a65ce8c317a36cc6d7321eb0c"
+  integrity sha512-coGjVudsnlXvb20mobyeoguCfXKnLjXnKhYiMoS6wqy4ozazu12+5MsCh7Hs9UAkvK4Fzhf7+urvyoj/UpSkaQ==
   dependencies:
     "@sindresorhus/slugify" "1.1.0"
     date-fns "2.24.0"
@@ -9444,14 +9464,6 @@ std-env@^2.2.1:
   integrity sha512-eOsoKTWnr6C8aWrqJJ2KAReXoa7Vn5Ywyw6uCXgA/xDhxPoaIsBa5aNJmISY04dLwXPBnDHW4diGM7Sn5K4R/g==
   dependencies:
     ci-info "^3.1.1"
-
-strapi-provider-upload-cloudinary@^3.6.8:
-  version "3.6.8"
-  resolved "https://registry.yarnpkg.com/strapi-provider-upload-cloudinary/-/strapi-provider-upload-cloudinary-3.6.8.tgz#b3e8d2013c11e200f1565d491f7d3b37a64a2003"
-  integrity sha512-81aODHhMx3fBPRHXrF7vk1ppjSXby+L5GbojI4lTdjHqOmfJtHXC6V3R6CGzUz/b7Qe+Txs2W5PsySUkmjm3FQ==
-  dependencies:
-    cloudinary "^1.25.1"
-    into-stream "^5.1.0"
 
 stream-browserify@^3.0.0:
   version "3.0.0"
