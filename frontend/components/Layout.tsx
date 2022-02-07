@@ -6,11 +6,11 @@ const Layout = ({ children, categories, seo }: any) => {
   const [theme, setTheme] = useState<Theme>('light');
 
   useEffect(() => {
-    const theme = localStorage.getItem('b-gcdo:theme');
-    if (theme) {
-      setTheme(JSON.parse(theme));
+    const themeLocal = localStorage.getItem('b-gcdo:theme');
+    if (themeLocal && themeLocal != theme) {
+      setTheme(JSON.parse(themeLocal));
     }
-  }, []);
+  }, [theme]);
 
   const saveTheme = (theme: Theme) => {
     localStorage.setItem('b-gcdo:theme', JSON.stringify(theme));
@@ -30,8 +30,8 @@ const Layout = ({ children, categories, seo }: any) => {
 
   return (
     <>
-      <div className={theme}>
-        <div className="w-full dark:bg-stone-900 dark:text-white">
+      <div className={`${theme} h-full`}>
+        <div className="w-full dark:bg-stone-900 dark:text-white h-full overflow-auto">
           <div className=" max-w-6xl mx-auto sm:px-10 px-4 pb-20">
             <Nav theme={theme} onToggleTheme={toggleTheme} />
             {children}

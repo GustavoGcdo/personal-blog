@@ -12,7 +12,7 @@ const About = ({ aboutMe }: any) => {
       <Seo seo={aboutMe.attributes.seo} />
       <h1 className="text-5xl font-primary my-10 self-start mx-auto">Sobre mim</h1>
 
-      <div className="grid gap-5 md:grid-cols-3 grid-cols-1">
+      <div className="grid md:gap-5 md:grid-cols-3 grid-cols-1">
         <div className="col-start-1 col-end-3 prose dark:prose-invert prose-lg prose-p:font-sans max-w-none prose-h1:mt-10 prose-img:w-1/2 prose-img:mx-auto md:row-start-1 row-start-2">
           <ReactMarkdown>{aboutMe.attributes.content}</ReactMarkdown>
         </div>
@@ -37,15 +37,6 @@ const About = ({ aboutMe }: any) => {
       </p>
 
       <div className="flex flex-row gap-3">
-        {/* <Image
-          src="/images/logotipo-do-linkedin.svg"
-          alt="image"
-          width={45}
-          height={45}
-          layout="fixed"
-          objectFit="contain"
-        /> */}
-
         <svg
           className="h-8 w-8 dark:text-white text-black"
           viewBox="0 0 24 24"
@@ -57,14 +48,6 @@ const About = ({ aboutMe }: any) => {
         >
           <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
         </svg>
-        {/* <Image
-          src="/images/github.svg"
-          alt="image"
-          width={45}
-          height={45}
-          layout="fixed"
-          objectFit="contain"
-        /> */}
         <svg
           className="h-8 w-8 dark:text-white text-black"
           viewBox="0 0 24 24"
