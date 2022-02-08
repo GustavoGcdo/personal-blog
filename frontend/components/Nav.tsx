@@ -1,13 +1,14 @@
+import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import React from 'react';
-import { Theme } from './Layout';
 
-type Props = {
-  theme: Theme;
-  onToggleTheme: () => void;
-};
+const Nav = () => {
+  const { theme, setTheme } = useTheme();
 
-const Nav = (props: Props) => {
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
   return (
     <div>
       <nav className="flex flex-row justify-between py-5 items-center font-primary">
@@ -18,11 +19,9 @@ const Nav = (props: Props) => {
         </div>
 
         <div className="flex flex-row space-x-3 text-xl ">
-          <div onClick={() => props.onToggleTheme()}>
+          <div onClick={toggleTheme}>
             <svg
-              className={`h-8 w-8 cursor-pointer  ${
-                props.theme == 'dark' ? 'fill-white text-white' : ' text-black'
-              }`}
+              className="h-8 w-8 cursor-pointer dark:fill-white dark:text-white   text-black"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
