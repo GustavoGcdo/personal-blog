@@ -13,7 +13,7 @@ const About = ({ aboutMe }: any) => {
       <h1 className="text-5xl font-primary my-10 self-start mx-auto">Sobre mim</h1>
 
       <div className="grid md:gap-5 md:grid-cols-3 grid-cols-1">
-        <div className="col-start-1 col-end-3 prose dark:prose-invert prose-lg prose-p:font-sans max-w-none prose-h1:mt-10 prose-img:w-1/2 prose-img:mx-auto md:row-start-1 row-start-2">
+        <div className="col-start-1 col-end-3 prose dark:prose-invert prose-lg prose-p:font-sans dark:prose-blockquote:border-amber-500 first-letter:max-w-none prose-h1:mt-10 prose-img:w-1/2 prose-img:mx-auto md:row-start-1 row-start-2">
           <ReactMarkdown>{aboutMe.attributes.content}</ReactMarkdown>
         </div>
         <div className="mx-auto relative w-full h-[250px] mb-10 row-start-1">
