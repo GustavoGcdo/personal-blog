@@ -6,7 +6,15 @@ module.exports = {
       sans: ['Open Sans', 'sans-serif'],
       primary: ['Staatliches'],
     },
-    extend: {},
+    extend: {
+      typography: (theme) => ({
+        invert: {
+          css: {
+            '--tw-prose-quote-borders': theme('colors.cyan[400]'),
+          }
+        }
+      })
+    },
   },
   plugins: [require('@tailwindcss/typography')],
 };

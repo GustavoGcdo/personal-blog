@@ -44,9 +44,7 @@ const Home: NextPage = ({ articles, categories, homepage }: any) => {
 
       <div>
         <div className="flex flex-row justify-between mb-8">
-          <span className="before:block before:absolute before:-inset-1 before:top-7 before:left-3 dark:before:bg-amber-400 before:bg-amber-200 relative inline-block">
-            <span className="relative text-4xl text-black dark:text-white font-primary">Posts</span>
-          </span>
+          <span className="relative text-4xl text-black dark:text-white font-primary">Posts</span>
         </div>
 
         <Articles articles={articlesList} />
@@ -73,7 +71,9 @@ const Home: NextPage = ({ articles, categories, homepage }: any) => {
           </div>
         ) : (
           <div className="mx-auto w-fit text-center dark:bg-gray-700 bg-gray-200 px-4 py-2 rounded">
-            <span className="block dark:text-white text-gray-500">Você chegou ao fim dos posts</span>
+            <span className="block dark:text-white text-gray-500">
+              Você chegou ao fim dos posts
+            </span>
           </div>
         )}
       </div>

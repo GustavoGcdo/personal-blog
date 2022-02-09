@@ -1,4 +1,5 @@
 import { useTheme } from 'next-themes';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
@@ -12,10 +13,21 @@ const Nav = () => {
   return (
     <div>
       <nav className="flex flex-row justify-between py-5 items-center font-primary">
-        <div className="text-2xl">
-          <Link href="/">
-            <a>Gustavo Oliveira</a>
-          </Link>
+        <div className="flex items-center">
+          <div className="mr-2 relative w-36 h-16 cursor-pointer">
+            <Link href="/" passHref>
+              <Image
+                src={
+                  theme == 'dark' ? '/images/full-logo-white.svg' : '/images/full-logo-primary.svg'
+                }
+                alt="image"
+                width={130}
+                height={55}
+                layout="responsive"
+                objectFit="contain"
+              />
+            </Link>
+          </div>
         </div>
 
         <div className="flex flex-row space-x-3 text-xl ">

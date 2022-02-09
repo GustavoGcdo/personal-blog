@@ -36,7 +36,7 @@ const ArticlePage = ({ article, categories }: any) => {
         </span>
       </div>
 
-      <div className="mt-5 prose prose-lg dark:prose-invert dark:prose-blockquote:border-amber-500 prose-p:font-sans max-w-none mx-auto prose-h1:mt-10 prose-img:w-1/2 prose-img:mx-auto">
+      <div className="mt-5 prose prose-lg dark:prose-invert prose-p:font-sans max-w-none mx-auto prose-h1:mt-10 prose-img:w-1/2 prose-img:mx-auto">
         <ReactMarkdown>{getContent()}</ReactMarkdown>
       </div>
     </Layout>
