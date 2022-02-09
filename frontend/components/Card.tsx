@@ -12,7 +12,7 @@ const Card = ({ article }: any) => {
         <div className="relative sm:w-[200px] sm:h-[160px] w-[140px] h-[95px] self-center">
           {article.attributes?.image?.data && (
             <Image
-              src={getStrapiMedia(article.attributes.image, 'thumbnail')}
+              src={getStrapiMedia(article.attributes.image, 'medium')}
               alt="image"
               layout="fill"
               objectFit="cover"
