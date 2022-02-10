@@ -1,7 +1,8 @@
 import { useTheme } from 'next-themes';
-import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import LogoPrimary from '../assets/logoPrimaryAnimada.svg';
+import LogoWhite from '../assets/logoWhiteAnimada.svg';
 
 const Nav = () => {
   const { theme, setTheme } = useTheme();
@@ -14,18 +15,9 @@ const Nav = () => {
     <div>
       <nav className="flex flex-row justify-between py-5 items-center font-primary">
         <div className="flex items-center">
-          <div className="mr-2 relative w-36 h-16 cursor-pointer">
+          <div className="mr-2 relative sm:w-32 w-28 h-auto cursor-pointer">
             <Link href="/" passHref>
-              <Image
-                src={
-                  theme == 'dark' ? '/images/full-logo-white.svg' : '/images/full-logo-primary.svg'
-                }
-                alt="image"
-                width={130}
-                height={55}
-                layout="responsive"
-                objectFit="contain"
-              />
+              {theme == 'light' ? <LogoPrimary /> : <LogoWhite />}
             </Link>
           </div>
         </div>
