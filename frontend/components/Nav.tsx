@@ -17,7 +17,7 @@ const Nav = () => {
         <div className="flex items-center">
           <div className="mr-2 relative sm:w-32 w-28 h-auto cursor-pointer">
             <Link href="/" passHref>
-              {theme == 'light' ? <LogoPrimary /> : <LogoWhite />}
+              {theme == 'dark' ? <LogoWhite /> : <LogoPrimary />}
             </Link>
           </div>
         </div>
