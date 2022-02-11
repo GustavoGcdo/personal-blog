@@ -5,7 +5,7 @@ export function getStrapiMedia(media: any, variant?: MediaVariant) {
   const { url, formats } = media.data.attributes;
   let urlImage = url;
 
-  if (variant && formats) {
+  if (variant && formats && formats?.[variant]) {
     urlImage = formats?.[variant].url;
   }
   
