@@ -15,11 +15,16 @@ const Nav = () => {
     <div>
       <nav className="flex flex-row justify-between py-5 items-center font-primary">
         <div className="flex items-center">
-          <div className="mr-2 relative sm:w-32 w-28 h-auto cursor-pointer">
-            <Link href="/" passHref>
-              {theme == 'dark' ? <LogoWhite /> : <LogoPrimary />}
-            </Link>
-          </div>
+          <Link href="/" passHref>
+            <div className="mr-2 relative sm:w-32 w-28 h-auto cursor-pointer">
+              <div className="dark:hidden block">
+                <LogoPrimary />
+              </div>
+              <div className="dark:block hidden">
+                <LogoWhite />
+              </div>
+            </div>
+          </Link>
         </div>
 
         <div className="flex flex-row space-x-3 text-xl ">
