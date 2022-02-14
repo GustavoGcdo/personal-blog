@@ -1,17 +1,32 @@
 import type { AppContext, AppProps } from 'next/app';
 import App from 'next/app';
-import { createContext } from 'react';
+import { createContext, useEffect } from 'react';
 import { fetchAPI } from '../lib/api';
 import 'normalize.css/normalize.css';
 import '../styles/globals.css';
 import { getStrapiMedia } from '../lib/media';
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
+import { useRouter } from 'next/router';
+import * as gtag from '../lib/gtag';
+import Analytics from '../components/Analytics';
 
 export const GlobalContext = createContext<any>({});
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { global } = pageProps;
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url: URL) => {
+      gtag.pageview(url);
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <>
@@ -21,10 +36,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         </Head>
       )}
       <GlobalContext.Provider value={global.attributes}>
-        <ThemeProvider attribute='class'>
+        <ThemeProvider attribute="class">
           <Component {...pageProps} />
         </ThemeProvider>
       </GlobalContext.Provider>
+      <Analytics />
     </>
   );
 }
