@@ -26,12 +26,8 @@ const ArticlePage = ({ article }: any) => {
       <Seo seo={seo} />
       <BackButton />
       <div className="flex flex-col sm:mt-5 mt-8 mb-14">
-        <span className="block text-black dark:text-white text-4xl font-bold">
-          {article.attributes.title}
-        </span>
-        <span className="text-gray-500 dark:text-gray-300 mt-2 text-xl">
-          {article.attributes.description}
-        </span>
+        <span className="block text-black dark:text-white text-4xl font-bold">{article.attributes.title}</span>
+        <span className="text-gray-500 dark:text-gray-300 mt-2 text-xl">{article.attributes.description}</span>
         <span className="text-sm font-sans mt-2 w-fit py-1 rounded dark:bg-gray-700 bg-gray-200 px-2 dark:text-white text-gray-700 font-medium">
           <Moment locale="pt-br" format="LL">
             {article.attributes.publishedAt}
@@ -60,34 +56,19 @@ export async function getStaticPaths() {
   };
 }
 
-ArticlePage.getInitialProps = async ({ query }: any) => {
-  console.log(query);
-
+export async function getStaticProps({ params }: any) {
   const articlesRes = await fetchAPI('/articles', {
     filters: {
-      slug: query.slug,
+      slug: params.slug,
     },
     populate: '*',
   });
-  // const categoriesRes = await fetchAPI('/categories');
+  const categoriesRes = await fetchAPI('/categories');
 
-  console.log(articlesRes.data[0]);
-
-  return { article: articlesRes.data[0] };
-};
-
-// export async function getServerSideProps({ params }: any) {
-//   const articlesRes = await fetchAPI('/articles', {
-//     filters: {
-//       slug: params.slug,
-//     },
-//     populate: '*',
-//   });
-//   const categoriesRes = await fetchAPI('/categories');
-
-//   return {
-//     props: { article: articlesRes.data[0], categories: categoriesRes },
-//   };
-// }
+  return {
+    props: { article: articlesRes.data[0], categories: categoriesRes },
+    revalidate: 1,
+  };
+}
 
 export default ArticlePage;
