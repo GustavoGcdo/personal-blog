@@ -47,47 +47,47 @@ const ArticlePage = ({ article }: any) => {
   );
 };
 
-// export async function getStaticPaths() {
-//   const articlesRes = await fetchAPI('/articles', { fields: ['slug'] });
+export async function getStaticPaths() {
+  const articlesRes = await fetchAPI('/articles', { fields: ['slug'] });
 
-//   return {
-//     paths: articlesRes.data.map((article: any) => ({
-//       params: {
-//         slug: article.attributes.slug,
-//       },
-//     })),
-//     fallback: false,
-//   };
-// }
+  return {
+    paths: articlesRes.data.map((article: any) => ({
+      params: {
+        slug: article.attributes.slug,
+      },
+    })),
+    fallback: false,
+  };
+}
 
-// ArticlePage.getInitialProps = async ({ query }: any) => {
-//   console.log(query);
+ArticlePage.getInitialProps = async ({ query }: any) => {
+  console.log(query);
 
-//   const articlesRes = await fetchAPI('/articles', {
-//     filters: {
-//       slug: query.slug,
-//     },
-//     populate: '*',
-//   });
-//   // const categoriesRes = await fetchAPI('/categories');
-
-//   console.log(articlesRes.data[0]);
-
-//   return { article: articlesRes.data[0] };
-// };
-
-export async function getServerSideProps({ params }: any) {
   const articlesRes = await fetchAPI('/articles', {
     filters: {
-      slug: params.slug,
+      slug: query.slug,
     },
     populate: '*',
   });
-  const categoriesRes = await fetchAPI('/categories');
+  // const categoriesRes = await fetchAPI('/categories');
 
-  return {
-    props: { article: articlesRes.data[0], categories: categoriesRes },
-  };
-}
+  console.log(articlesRes.data[0]);
+
+  return { article: articlesRes.data[0] };
+};
+
+// export async function getServerSideProps({ params }: any) {
+//   const articlesRes = await fetchAPI('/articles', {
+//     filters: {
+//       slug: params.slug,
+//     },
+//     populate: '*',
+//   });
+//   const categoriesRes = await fetchAPI('/categories');
+
+//   return {
+//     props: { article: articlesRes.data[0], categories: categoriesRes },
+//   };
+// }
 
 export default ArticlePage;
