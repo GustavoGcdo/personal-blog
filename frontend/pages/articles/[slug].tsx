@@ -7,7 +7,7 @@ import Seo from '../../components/Seo';
 import { fetchAPI, getStrapiURL } from '../../lib/api';
 import { countReadMinutes } from '../../lib/word-read-calc';
 
-const ArticlePage = ({ article, categories }: any) => {
+const ArticlePage = ({ article }: any) => {
   const seo = {
     metaTitle: article.attributes.title,
     metaDescription: article.attributes.description,
@@ -26,8 +26,12 @@ const ArticlePage = ({ article, categories }: any) => {
       <Seo seo={seo} />
       <BackButton />
       <div className="flex flex-col sm:mt-5 mt-8 mb-14">
-        <span className="block text-black dark:text-white text-4xl font-bold">{article.attributes.title}</span>
-        <span className="text-gray-500 dark:text-gray-300 mt-2 text-xl">{article.attributes.description}</span>
+        <span className="block text-black dark:text-white text-4xl font-bold">
+          {article.attributes.title}
+        </span>
+        <span className="text-gray-500 dark:text-gray-300 mt-2 text-xl">
+          {article.attributes.description}
+        </span>
         <span className="text-sm font-sans mt-2 w-fit py-1 rounded dark:bg-gray-700 bg-gray-200 px-2 dark:text-white text-gray-700 font-medium">
           <Moment locale="pt-br" format="LL">
             {article.attributes.publishedAt}
@@ -43,20 +47,36 @@ const ArticlePage = ({ article, categories }: any) => {
   );
 };
 
-export async function getStaticPaths() {
-  const articlesRes = await fetchAPI('/articles', { fields: ['slug'] });
+// export async function getStaticPaths() {
+//   const articlesRes = await fetchAPI('/articles', { fields: ['slug'] });
 
-  return {
-    paths: articlesRes.data.map((article: any) => ({
-      params: {
-        slug: article.attributes.slug,
-      },
-    })),
-    fallback: false,
-  };
-}
+//   return {
+//     paths: articlesRes.data.map((article: any) => ({
+//       params: {
+//         slug: article.attributes.slug,
+//       },
+//     })),
+//     fallback: false,
+//   };
+// }
 
-export async function getStaticProps({ params }: any) {
+// ArticlePage.getInitialProps = async ({ query }: any) => {
+//   console.log(query);
+
+//   const articlesRes = await fetchAPI('/articles', {
+//     filters: {
+//       slug: query.slug,
+//     },
+//     populate: '*',
+//   });
+//   // const categoriesRes = await fetchAPI('/categories');
+
+//   console.log(articlesRes.data[0]);
+
+//   return { article: articlesRes.data[0] };
+// };
+
+export async function getServerSideProps({ params }: any) {
   const articlesRes = await fetchAPI('/articles', {
     filters: {
       slug: params.slug,
@@ -67,7 +87,6 @@ export async function getStaticProps({ params }: any) {
 
   return {
     props: { article: articlesRes.data[0], categories: categoriesRes },
-    revalidate: 1,
   };
 }
 
