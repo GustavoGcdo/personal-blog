@@ -11,45 +11,44 @@ const Home: NextPage = ({ articles, categories, homepage }: any) => {
   const [actualPage, setActualPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
-  const getMoreArticles = async () => {
-    const newArticlesRes = await fetchAPI('/articles', {
-      populate: '*',
-      sort: ['publishedAt:desc'],
-      pagination: {
-        page: actualPage + 1,
-        pageSize: 5,
-      },
-    });
+  // const getMoreArticles = async () => {
+  //   const newArticlesRes = await fetchAPI('/articles', {
+  //     populate: '*',
+  //     sort: ['publishedAt:desc'],
+  //     pagination: {
+  //       page: actualPage + 1
+  //     },
+  //   });
 
-    const newArticles: any[] = newArticlesRes.data;
-    if (newArticles.length > 0) {
-      setActualPage((old) => old + 1);
-      setArticlesList((oldList) => oldList.concat(newArticles));
-    } else {
-      setHasMore(false);
-    }
-  };
+  //   const newArticles: any[] = newArticlesRes.data;
+  //   if (newArticles.length > 0) {
+  //     setActualPage((old) => old + 1);
+  //     setArticlesList((oldList) => oldList.concat(newArticles));
+  //   } else {
+  //     setHasMore(false);
+  //   }
+  // };
 
   return (
     <Layout>
       <Seo seo={homepage.attributes.seo} />
-      <div className="sm:py-20 py-10 mb-4">
-        <h1 className="sm:text-5xl text-4xl font-primary dark:text-white">
+      <div className="py-10 mb-10">
+        <h1 className="sm:text-5xl text-4xl text-stone-800 font-primary dark:text-white">
           {homepage.attributes.hero.title || homepage_default.title}
         </h1>
-        <h2 className="sm:text-1xl text-xl max-w-lg text-zinc-500 dark:text-gray-300 mt-2">
+        <h2 className="sm:text-xl text-xl max-w-lg text-stone-600 dark:text-gray-300 mt-2">
           {homepage.attributes.hero.subtitle || homepage_default.subtitle}
         </h2>
       </div>
 
       <div>
-        <div className="flex flex-row justify-between mb-8">
+        <div className="flex flex-row justify-between mb-4">
           <span className="relative text-4xl text-black dark:text-white font-primary">Posts</span>
         </div>
 
         <Articles articles={articlesList} />
 
-        {hasMore ? (
+        {/* {hasMore ? (
           <div
             className="group w-fit mx-auto px-3 py-1 rounded flex flex-row items-center font-primary text-xl justify-center cursor-pointer border-2 dark:border-white border-stone-800 dark:hover:bg-white dark:hover:text-stone-900 hover:bg-stone-800 hover:text-white transition-all ease-in-out"
             onClick={getMoreArticles}
@@ -70,12 +69,12 @@ const Home: NextPage = ({ articles, categories, homepage }: any) => {
             </svg>
           </div>
         ) : (
-          <div className="mx-auto w-fit text-center dark:bg-gray-700 bg-gray-200 px-4 py-2 rounded">
-            <span className="block dark:text-white text-gray-500">
+        )} */}
+          <div className="mx-auto mt-10 w-fit text-center dark:bg-stone-800 bg-stone-200 px-4 py-2 rounded">
+            <span className="block dark:text-stone-300 text-gray-500">
               Você chegou ao fim dos posts
             </span>
           </div>
-        )}
       </div>
     </Layout>
   );
@@ -85,11 +84,7 @@ export async function getStaticProps() {
   const [articlesRes, categoriesRes, homepageRes] = await Promise.all([
     fetchAPI('/articles', {
       populate: '*',
-      sort: ['publishedAt:desc'],
-      pagination: {
-        page: 1,
-        pageSize: 5,
-      },
+      sort: ['publishedAt:desc']
     }),
     fetchAPI('/categories', { populate: '*' }),
     fetchAPI('/homepage', {

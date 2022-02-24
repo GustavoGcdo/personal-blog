@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </Head>
       )}
       <GlobalContext.Provider value={global.attributes}>
-        <ThemeProvider attribute="class">
+        <ThemeProvider attribute="class" enableSystem={false}>
           <Component {...pageProps} />
         </ThemeProvider>
       </GlobalContext.Provider>
