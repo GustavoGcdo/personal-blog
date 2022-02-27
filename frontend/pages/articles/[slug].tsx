@@ -25,7 +25,7 @@ const ArticlePage = ({ article }: any) => {
   return (
     <Layout>
       <Seo seo={seo} />
-      <div className="bg-white dark:bg-stone-800 rounded sm:p-10 p-4 mt-3">
+      <div className="sm:bg-white sm:dark:bg-stone-800 rounded sm:p-10 p-0 mt-3">
         <div className="flex flex-col mb-14">
           <span className="block text-black dark:text-white text-4xl font-bold">
             {article.attributes.title}
