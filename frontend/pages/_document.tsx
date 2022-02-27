@@ -3,7 +3,7 @@ import Document, { Head, Html, Main, NextScript } from 'next/document';
 class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang='pt-BR'>
         <Head>
           {/* eslint-disable-next-line */}
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Staatliches" />

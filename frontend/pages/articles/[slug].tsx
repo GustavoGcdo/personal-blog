@@ -1,7 +1,8 @@
 import 'moment/locale/pt-br';
 import ReactMarkdown from 'react-markdown';
 import Moment from 'react-moment';
-import BackButton from '../../components/BackButton';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { materialDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Layout from '../../components/Layout';
 import Seo from '../../components/Seo';
 import { fetchAPI, getStrapiURL } from '../../lib/api';
@@ -23,8 +24,8 @@ const ArticlePage = ({ article }: any) => {
 
   return (
     <Layout>
-      <Seo seo={seo} />      
-      <div className='bg-white dark:bg-stone-800 rounded sm:p-10 p-4 mt-3'>
+      <Seo seo={seo} />
+      <div className="bg-white dark:bg-stone-800 rounded sm:p-10 p-4 mt-3">
         <div className="flex flex-col mb-14">
           <span className="block text-black dark:text-white text-4xl font-bold">
             {article.attributes.title}
@@ -40,8 +41,30 @@ const ArticlePage = ({ article }: any) => {
           </span>
         </div>
 
-        <div className="mt-5 prose prose-lg dark:prose-invert prose-p:font-sans max-w-none mx-auto prose-h1:mt-10 prose-img:w-1/2 prose-img:mx-auto">
-          <ReactMarkdown>{getContent()}</ReactMarkdown>
+        <div className="mt-5 prose prose-lg prose-pre:bg-zinc-800 prose-pre:px-2 prose-pre:py-0 dark:prose-invert prose-p:font-sans max-w-none mx-auto prose-h1:mt-10 prose-img:w-1/2 prose-img:mx-auto">
+          <ReactMarkdown
+            components={{
+              code({ node, inline, className, children, ...props }) {
+                const match = /language-(\w+)/.exec(className || '');
+                return !inline && match ? (
+                  <SyntaxHighlighter
+                    style={materialDark}
+                    language={match[1] || 'javascript'}
+                    PreTag="div"
+                    {...props}
+                  >
+                    {String(children).replace(/\n$/, '')}
+                  </SyntaxHighlighter>
+                ) : (
+                  <code className={className} {...props}>
+                    {children}
+                  </code>
+                );
+              },
+            }}
+          >
+            {getContent()}
+          </ReactMarkdown>
         </div>
       </div>
     </Layout>
