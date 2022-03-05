@@ -7,7 +7,7 @@ import { countReadMinutes } from '../lib/word-read-calc';
 
 const Card = ({ article }: any) => {
   return (
-    <div className="dark:p-2 dark:bg-stone-800 dark:border-none rounded flex flex-row hover:cursor-pointer transition-all ease-in-out">
+    <div className="dark:p-2 dark:bg-stone-800 dark:border-none rounded flex flex-row transition-all ease-in-out">
       <div className="relative sm:w-[200px] sm:h-[130px] w-[140px] h-[95px] self-center">
         {article.attributes?.image?.data && (
           <Image
@@ -20,7 +20,7 @@ const Card = ({ article }: any) => {
       </div>
       <div className="flex flex-col sm:px-8 px-4 max-w-2xl w-full">
         <Link href={`/articles/${article.attributes.slug}`} passHref>
-          <span className="block sm:text-2xl text-lg font-bold hover:underline hover:underline-offset-2">
+          <span className="block sm:text-2xl text-lg font-bold hover:cursor-pointer hover:underline hover:underline-offset-2">
             {article?.attributes?.title}
           </span>
         </Link>
