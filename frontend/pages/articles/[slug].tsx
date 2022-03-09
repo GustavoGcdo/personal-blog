@@ -41,7 +41,7 @@ const ArticlePage = ({ article }: any) => {
           </span>
         </div>
 
-        <div className="mt-5 prose prose-lg prose-pre:bg-zinc-800 prose-pre:px-2 prose-pre:py-0 dark:prose-invert prose-p:font-sans max-w-none mx-auto prose-h1:mt-10 prose-img:w-1/2 prose-img:mx-auto">
+        <div className="mt-5 prose prose-lg prose-pre:bg-zinc-800 prose-pre:px-2 prose-pre:py-0 dark:prose-invert prose-p:font-sans max-w-none mx-auto prose-h1:mt-10 prose-img:w-2/3 prose-img:mx-auto">
           <ReactMarkdown
             components={{
               code({ node, inline, className, children, ...props }) {
