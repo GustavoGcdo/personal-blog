@@ -4,8 +4,8 @@ backend:
   base_url: https://www.gustavooliveira.dev/
   auth_endpoint: api/auth/
 
-media_folder: public/assets/img
-public_folder: /assets/img
+media_folder: public/images
+public_folder: /images
 
 publish_mode: editorial_workflow
 
