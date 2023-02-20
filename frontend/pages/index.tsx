@@ -1,21 +1,17 @@
-import type { NextPage } from 'next';
 import Articles from '../components/Articles';
 import Layout from '../components/Layout';
-import Seo from '../components/Seo';
-import { homepage_default } from '../constants/texts';
-import { fetchAPI } from '../lib/api';
+import { HomepageTexts } from '../constants/texts';
+import { getSortedPostsData } from '../lib/posts';
 
-const Home: NextPage = ({ articles, homepage }: any) => {
-  
+const Home = ({articles}: any) => {
   return (
-    <Layout>
-      <Seo seo={homepage.attributes.seo} />
+    <Layout>      
       <div className="py-10 mb-10">
         <h1 className="sm:text-5xl text-4xl text-stone-800 font-primary dark:text-white">
-          {homepage.attributes.hero.title || homepage_default.title}
+          {HomepageTexts.title}
         </h1>
         <h2 className="sm:text-xl text-xl max-w-lg text-stone-600 dark:text-gray-300 mt-2">
-          {homepage.attributes.hero.subtitle || homepage_default.subtitle}
+          {HomepageTexts.subtitle}
         </h2>
       </div>
 
@@ -36,31 +32,13 @@ const Home: NextPage = ({ articles, homepage }: any) => {
   );
 };
 
-export async function getStaticProps() {
-  const [articlesRes, categoriesRes, homepageRes] = await Promise.all([
-    fetchAPI('/articles', {
-      populate: '*',
-      sort: ['publishedAt:desc'],
-      pagination: {
-        pageSize: 200,
-      },
-    }),
-    fetchAPI('/categories', { populate: '*' }),
-    fetchAPI('/homepage', {
-      populate: {
-        hero: '*',
-        seo: { populate: '*' },
-      },
-    }),
-  ]);
-
+export async function getServerSideProps() {
+  const allPostsData = await getSortedPostsData();
+  
   return {
     props: {
-      articles: articlesRes.data,
-      categories: categoriesRes.data,
-      homepage: homepageRes.data,
+      articles: allPostsData,
     },
-    revalidate: 1,
   };
 }
 
