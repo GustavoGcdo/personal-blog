@@ -1,8 +1,6 @@
 ---
 title: 'A Essência da Metodologia Ágil'
 description: 'Muitos acham que a agilidade é sobre fazer as coisas rapidamente. Mas não é. Nunca se tratou de fazer as coisas rapidamente. A metodologia ágil é saber, o mais cedo possível, o quanto estamos ferrados.'
-createdAt: '2022-02-11'
-updatedAt: '2022-03-09'
 publishedAt: '2022-02-11'
 image: '/images/essencia-metodologia-agil/agil-kanban.jpg'
 ---

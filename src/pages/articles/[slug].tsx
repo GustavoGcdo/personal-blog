@@ -2,11 +2,10 @@ import 'moment/locale/pt-br';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import ReactMarkdown from 'react-markdown';
-import Moment from 'react-moment';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Layout from '../../components/Layout';
-import { getPostBySlug, Post, getSortedPostsData } from '../../lib/posts';
+import { getPostBySlug, getSortedPostsData, Post } from '../../lib/posts';
 import { countReadMinutes } from '../../lib/word-read-calc';
 
 type Props = {
@@ -18,11 +17,11 @@ const ArticlePage = ({ article }: Props) => {
     <>
       <NextSeo
         title={`${article.title} | Gustavo Oliveira`}
-        description={article.description}        
+        description={article.description}
         openGraph={{
           url: `https://www.gustavooliveira.dev/articles/${article.slug}`,
           title: `${article.title} | Gustavo Oliveira`,
-          description: article.description
+          description: article.description,
         }}
       />
 
@@ -36,10 +35,7 @@ const ArticlePage = ({ article }: Props) => {
               {article.description}
             </span>
             <span className="text-sm font-sans mt-2 w-fit py-1 rounded dark:bg-gray-700 bg-gray-200 px-2 dark:text-white text-gray-700 font-medium">
-              <Moment locale="pt-br" format="LL">
-                {article.publishedAt}
-              </Moment>{' '}
-              - {countReadMinutes(article.content) + ' min de leitura'}
+              {article.date} - {countReadMinutes(article.content) + ' min de leitura'}
             </span>
           </div>
 

@@ -23,7 +23,7 @@ const About = () => {
         openGraph={{
           url: 'https://www.gustavooliveira.dev/about',
           title: 'Sobre mim | Gustavo Oliveira',
-          description: 'Um pouco mais sobre quem sou eu e o que faço.'
+          description: 'Um pouco mais sobre quem sou eu e o que faço.',
         }}
       />
 
@@ -35,7 +35,7 @@ const About = () => {
             <ReactMarkdown>{AboutMe}</ReactMarkdown>
           </div>
           <div className="mx-auto relative w-full h-[250px] mb-10 row-start-1">
-            <Image src="/images/profile.jpg" alt="image" layout="fill" objectFit="cover" />
+            <Image src="/images/profile.jpg" alt="image" fill style={{ objectFit: 'cover' }} />
           </div>
         </div>
 

@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/inline-script-id */
 import Script from 'next/script';
 import { GA_TRACKING_ID } from '../lib/gtag';
 
@@ -9,6 +8,7 @@ const Analytics = () => (
       src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
     />
     <Script
+      id="google-analytics"
       strategy="afterInteractive"
       dangerouslySetInnerHTML={{
         __html: `
