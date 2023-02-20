@@ -4,15 +4,13 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import 'normalize.css/normalize.css';
-import { createContext, useEffect } from 'react';
+import { useEffect } from 'react';
+import DEFAULT_SEO from '../../next-seo.config';
 import Analytics from '../components/Analytics';
 import * as gtag from '../lib/gtag';
-import DEFAULT_SEO from '../../next-seo.config';
 import '../styles/globals.css';
 
-export const GlobalContext = createContext<any>({});
-
-function MyApp({ Component, pageProps }: AppProps) {
+const CustomApp =({ Component, pageProps }: AppProps) => {
   const router = useRouter();
 
   useEffect(() => {
@@ -37,15 +35,15 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="Lugar onde compartilho minhas experiências e aprendizados principalmente nos assuntos Javascript, Node.js e Arquitetura de software"
         />
       </Head>
-      <GlobalContext.Provider value={{}}>
-        <ThemeProvider attribute="class" enableSystem={false}>
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </GlobalContext.Provider>
+
+      <ThemeProvider attribute="class" enableSystem={false}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+
       <DefaultSeo {...DEFAULT_SEO} />
       <Analytics />
     </>
   );
 }
 
-export default MyApp;
+export default CustomApp;
