@@ -4,7 +4,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang='pt-BR'>
-        <Head>
+        <Head>          
           {/* eslint-disable-next-line */}
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Staatliches" />
           <link
