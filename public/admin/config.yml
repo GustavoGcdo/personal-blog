@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: GustavoGcdo/personal-blog
   branch: master
   base_url: https://www.gustavooliveira.dev/
@@ -7,9 +7,7 @@ backend:
 
 media_folder: "public/images"
 public_folder: "/images"
-
 publish_mode: editorial_workflow
-
 slug:
   encoding: 'ascii'
   clean_accents: true
