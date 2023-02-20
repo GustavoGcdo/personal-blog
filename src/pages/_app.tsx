@@ -7,7 +7,7 @@ import 'normalize.css/normalize.css';
 import { createContext, useEffect } from 'react';
 import Analytics from '../components/Analytics';
 import * as gtag from '../lib/gtag';
-import DEFAULT_SEO from '../next-seo.config';
+import DEFAULT_SEO from '../../next-seo.config';
 import '../styles/globals.css';
 
 export const GlobalContext = createContext<any>({});
