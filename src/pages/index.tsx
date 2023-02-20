@@ -3,10 +3,10 @@ import Layout from '../components/Layout';
 import { HomepageTexts } from '../constants/texts';
 import { getSortedPostsData } from '../lib/posts';
 
-const Home = ({articles}: any) => {
+const Home = ({ articles }: any) => {
   return (
-    <Layout>      
-      <div className="py-10 mb-10">
+    <Layout>
+      <div className="py-10 mb-10">        
         <h1 className="sm:text-5xl text-4xl text-stone-800 font-primary dark:text-white">
           {HomepageTexts.title}
         </h1>
@@ -34,7 +34,7 @@ const Home = ({articles}: any) => {
 
 export async function getServerSideProps() {
   const allPostsData = await getSortedPostsData();
-  
+
   return {
     props: {
       articles: allPostsData,

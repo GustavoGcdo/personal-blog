@@ -12,6 +12,7 @@ const nextConfig = {
     loader: "default",
     domains: ["localhost"],
   },
+  
 }
 
 module.exports = nextConfig

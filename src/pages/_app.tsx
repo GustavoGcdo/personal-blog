@@ -1,3 +1,4 @@
+import { Inter, Staatliches } from '@next/font/google';
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
@@ -10,7 +11,13 @@ import Analytics from '../components/Analytics';
 import * as gtag from '../lib/gtag';
 import '../styles/globals.css';
 
-const CustomApp =({ Component, pageProps }: AppProps) => {
+const staatliches = Staatliches({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-staatliches'
+});
+
+const CustomApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
 
   useEffect(() => {
@@ -35,15 +42,17 @@ const CustomApp =({ Component, pageProps }: AppProps) => {
           content="Lugar onde compartilho minhas experiências e aprendizados principalmente nos assuntos Javascript, Node.js e Arquitetura de software"
         />
       </Head>
-
+      
       <ThemeProvider attribute="class" enableSystem={false}>
-        <Component {...pageProps} />
+        <main className={`${staatliches.variable} font-sans`}>
+          <Component {...pageProps} />
+        </main>
       </ThemeProvider>
 
       <DefaultSeo {...DEFAULT_SEO} />
       <Analytics />
     </>
   );
-}
+};
 
 export default CustomApp;

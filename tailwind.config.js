@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 module.exports = {
   darkMode: 'class',
   content: [
@@ -5,9 +7,8 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
     './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    fontFamily: {
-      sans: ['Open Sans', 'sans-serif'],
-      primary: ['Staatliches'],
+    fontFamily: {      
+      primary: ['var(--font-staatliches)'],
     },
     extend: {
       typography: (theme) => ({

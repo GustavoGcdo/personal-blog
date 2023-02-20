@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html,
-body {
+body, main {
   padding: 0;
   margin: 0;
   height: 100vh;
