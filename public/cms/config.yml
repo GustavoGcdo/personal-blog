@@ -1,0 +1,29 @@
+backend:
+  name: github
+  repo: GustavoGcdo/personal-blog
+  base_url: https://www.gustavooliveira.dev/
+  auth_endpoint: api/auth/
+
+media_folder: public/assets/img
+public_folder: /assets/img
+
+publish_mode: editorial_workflow
+
+slug:
+  encoding: 'ascii'
+  clean_accents: true
+
+collections:
+  - name: posts
+    label: posts
+    folder: posts 
+    create: true 
+    slug: '{{slug}}' 
+    fields:
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'post' }
+      - { label: 'Date', name: 'date', widget: 'datetime', format: 'YYYY-MM-DD hh:mm:ss' }
+      - { label: 'Post Image', name: 'image', widget: 'image', required: false }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+
+      - { label: 'Body', name: 'body', widget: 'markdown' }
