@@ -22,6 +22,12 @@ const ArticlePage = ({ article }: Props) => {
           url: `https://www.gustavooliveira.dev/articles/${article.slug}`,
           title: `${article.title} | Gustavo Oliveira`,
           description: article.description,
+          images: [
+            {
+              url: 'https://www.gustavooliveira.dev/images/' + article.image,
+              alt: article.title
+            }
+          ]
         }}
       />
 
