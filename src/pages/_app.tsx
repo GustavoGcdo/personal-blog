@@ -33,7 +33,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
-        <title>Início | Gustavo Oliveira</title>
+        <title>Gustavo Oliveira</title>
         <link rel="shortcut icon" href="/favicon.svg" />
         <link rel="apple-touch-icon" href="/public/favicon.svg" />
         <meta name="theme-color" content="#252628" />

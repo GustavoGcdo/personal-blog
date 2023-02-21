@@ -6,7 +6,7 @@ import { getSortedPostsData } from '../lib/posts';
 const Home = ({ articles }: any) => {
   return (
     <Layout>
-      <div className="py-10 mb-10">        
+      <div className="py-10 mb-10">
         <h1 className="sm:text-5xl text-4xl text-stone-800 font-primary dark:text-white">
           {HomepageTexts.title}
         </h1>
