@@ -5,13 +5,7 @@ const DEFAULT_SEO: DefaultSeoProps = {
     type: 'website',
     locale: 'pt_BR',
     url: 'https://gustavooliveira.dev/',
-    site_name: 'Gustavo Oliveira',
-    images: [
-      {
-        url: 'https://gustavooliveira.dev/images/share-site.png',
-        alt: 'Logo Gustavo oliveira',
-      },
-    ],
+    site_name: 'Gustavo Oliveira'
   },
   twitter: {
     handle: '@Gustavo_gcdo',

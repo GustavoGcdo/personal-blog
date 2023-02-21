@@ -24,6 +24,12 @@ const About = () => {
           url: 'https://www.gustavooliveira.dev/about',
           title: 'Sobre mim | Gustavo Oliveira',
           description: 'Um pouco mais sobre quem sou eu e o que faço.',
+          images: [
+            {
+              url: 'https://gustavooliveira.dev/images/share-site.png',
+              alt: 'Logo Gustavo oliveira',
+            },
+          ],
         }}
       />
 
