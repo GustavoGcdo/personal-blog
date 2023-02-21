@@ -24,7 +24,7 @@ const ArticlePage = ({ article }: Props) => {
           description: article.description,
           images: [
             {
-              url: 'https://www.gustavooliveira.dev/images/' + article.image,
+              url: 'https://www.gustavooliveira.dev' + article.image,
               alt: article.title
             }
           ]
