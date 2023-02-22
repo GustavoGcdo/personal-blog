@@ -1,10 +1,15 @@
+import { Post } from '../lib/posts';
 import Card from './Card';
 
-const Articles = ({ articles }: any) => {  
+type Props = {
+  articles: Post[];
+};
+
+const Articles = ({ articles }: Props) => {
   return (
-    <div className='flex flex-col gap-6'>
-      {articles.map((article: any) => (
-        <Card key={`article_${article.id}`} article={article} />
+    <div className="flex flex-col gap-6">
+      {articles.map((article) => (
+        <Card key={`article_${article.slug}`} article={article} />
       ))}
     </div>
   );

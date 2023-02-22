@@ -25,7 +25,7 @@ const Card = ({ article }: Props) => {
           {article.description}
         </span>
         <span className="block group-hover:no-underline sm:text-sm text-xs font-sans mt-3 w-fit dark:text-gray-400 text-gray-400">
-          <span>{article.date}</span>
+          <span>{article.formatedDate}</span>
           {' - ' + countReadMinutes(article.content) + ' min'}
         </span>
       </div>

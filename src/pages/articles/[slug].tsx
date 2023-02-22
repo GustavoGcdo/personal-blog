@@ -41,7 +41,7 @@ const ArticlePage = ({ article }: Props) => {
               {article.description}
             </span>
             <span className="text-sm font-sans mt-2 w-fit py-1 rounded dark:bg-gray-700 bg-gray-200 px-2 dark:text-white text-gray-700 font-medium">
-              {article.date} - {countReadMinutes(article.content) + ' min de leitura'}
+              {article.formatedDate} - {countReadMinutes(article.content) + ' min de leitura'}
             </span>
           </div>
 

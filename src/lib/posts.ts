@@ -10,8 +10,8 @@ export type Post = {
   slug: string;
   title: string;
   description: string;
-  date: string;
-  publishedAt: Date;
+  formatedDate: string;
+  publishedAt: string;
   content: string;
   image: string;
 };
@@ -22,14 +22,19 @@ export function getPostBySlug(slug: string): Post {
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
+  
+  
   const date = format(new Date(data.publishedAt), "dd 'de' MMMM 'de' yyyy", {
     locale: pt,
   });
 
+  console.log(slug, '-',typeof data.publishedAt);
+  
   return {
     slug: realSlug,
     ...data,
-    date,
+    publishedAt: data.publishedAt.toString(),
+    formatedDate: date,
     content,
   } as Post;
 }
