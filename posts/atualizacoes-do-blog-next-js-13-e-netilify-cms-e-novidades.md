@@ -12,4 +12,4 @@ Recentemente a plataforma heroku sofreu por mudanças no plano gratuito e era l�
 
 N﻿ova plataforma de CMS
 
-![banner netilify cms](/images/netlify-cms.png)
+![banner netilify cms](netlify-cms.png)
