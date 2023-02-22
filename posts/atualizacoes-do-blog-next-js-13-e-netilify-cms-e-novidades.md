@@ -1,6 +1,6 @@
 ---
 layout: post
-publishedAt: 2023-02-22
+publishedAt: 2023-02-21
 image: /images/banner-next-13.png
 title: "Atualizações do blog: Next.js 13 e Netilify CMS e novidades!"
 description: Voltando a escrever aqui no blog, e já começando com novidades!
