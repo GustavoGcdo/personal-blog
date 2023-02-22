@@ -2,7 +2,7 @@
 title: 'A Essência da Metodologia Ágil'
 description: 'Muitos acham que a agilidade é sobre fazer as coisas rapidamente. Mas não é. Nunca se tratou de fazer as coisas rapidamente. A metodologia ágil é saber, o mais cedo possível, o quanto estamos ferrados.'
 publishedAt: '2022-02-11'
-image: '/images/essencia-metodologia-agil/agil-kanban.jpg'
+image: '/images/agil-kanban.jpg'
 ---
 
 ### Introdução
@@ -59,7 +59,7 @@ O autor destaca que uma das metodologias que mais representam os princípios do 
 
 O ciclo de vida na XP está subdivido em três círculos, cada um representa uma area: o mais externo representa as práticas de negócio, o círculo do meio as práticas relacionadas a equipe e o mais interno as práticas técnicas.
 
-![Ciclo de vida XP.svg](/images/essencia-metodologia-agil/Ciclo_de_vida_XP.svg)
+![Ciclo de vida XP.svg](/images/Ciclo_de_vida_XP.svg)
 
 #### Práticas de negócio:
 
