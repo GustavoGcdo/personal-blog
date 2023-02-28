@@ -4,9 +4,8 @@ publishedAt: 2023-02-22 12:18:26
 image: /images/banner-next-13.png
 title: "Atualizações do blog: Usando Netilify CMS e Next.js 13"
 description: Voltando a escrever aqui no blog, e já começando com novidades!
-  Testando as novas funcionalidades do Next.js 13 e também a mudança do CMS para
-  uma plataforma mais simples. Confira o porquê das mudanças e qual os planos
-  para o futuro.
+  Mudança do Strapi para Netlify CMS e testando algumas das novas
+  funcionalidades do Next.js 13.
 ---
 ## Introdução
 
