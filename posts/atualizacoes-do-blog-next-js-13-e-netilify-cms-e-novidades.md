@@ -2,7 +2,7 @@
 layout: post
 publishedAt: 2023-02-28 04:07:27
 image: /images/banner-next-13.png
-title: "Atualizações do blog: Usando Netilify CMS e Next.js 13"
+title: "Novidades blog: Migrando para Netlify CMS e atualização para Next.js 13"
 description: Voltando a escrever aqui no blog, e já começando com novidades!
   Conheça a arquitetura do blog, o porquê decidi mudar o CMS para uma plataforma
   mais simples e testando algumas das novas funcionalidades do Next.js 13.
@@ -25,13 +25,13 @@ Na antiga estrutura, o servidor do CMS ficava hospedado dentro do heroku com o b
 
 ![diagrama com a estrutura anterior](/images/estrutura-antiga.png "Diagrama com a estrutura anterior")
 
-Utilizando os recursos de geração estática do Next.js através das funções **getStaticProps** e **getStaticPaths** o frontend buscava os dados da api dos posts e dados que eram dinâmicos das páginas e gerava no build toda a parte estática necessária para que pudesse ser indexado pelos buscadores. 
+Utilizando os recursos de geração estática do Next.js através das funções **getStaticProps** e **getStaticPaths** o frontend buscava os dados da api dos posts e dados que eram dinâmicos das páginas e gerava no build toda a parte estática necessária para poder ser indexado pelos buscadores. 
 
 O mais legal é que se o conteúdo muda o Next faz o fetch novamente para gerar as páginas conforme os novos dados e caso contrário ele os mantém como estavam.
 
 E o que me deixou impressionado é que quando o serviço de banco de dados foi desligado do heroku e a api do strapi parou de funcionar, o blog continuou com as páginas normalmente sem quebrar por falta do conteúdo. 
 
-Essa era uma stack muito boa, ferramentas que combinaram muito e que para um projeto maior, com mais pessoas mantendo seria com certeza uma boa escolha, inclusive utilizei em projetos onde trabalho, mas como comentei para um simples blog onde só eu atualizo não tinha essa necessidade. 
+Essa era uma stack ótima, ferramentas que combinaram muito e que para um projeto maior, com mais pessoas mantendo seria com certeza uma boa escolha, inclusive utilizei em projetos onde trabalho, mas como comentei para um simples blog onde só eu atualizo não tinha essa necessidade. 
 
 ## Modificações e atualizações
 
@@ -97,24 +97,26 @@ Para autenticar usando a vercel/next seguir os seguintes passos: 
 3. Configurar um “new OAuth App” para permitir autenticação dentro do github (<https://github.com/settings/developers>)
 
    ![Configuração do aplicativo OAuth github](/images/register-on-github.png "Configuração do aplicativo OAuth github")
+
+
 4. Copiar as keys geradas no github
 
    ![Keys github](/images/github-keys.png "Keys github")
-5. Configurar as keys como OAUTH_CLIENT_ID  e OAUTH_CLIENT_SECRET nas variáveis de ambiente da Vercel Configuração.
+5. Configurar as keys como OAUTH_CLIENT_ID e OAUTH_CLIENT_SECRET nas variáveis de ambiente da Vercel Configuração.
 
    ![Variáveis de ambiente na vercel](/images/env-vercel.png "Variáveis de ambiente na vercel")
 
-Com isso configurado, é só logar no github e já terá acesso ao CMS.
+Com isso configurado, é só entrar com github e já terá acesso ao CMS.
 
 ### Workflow
 
-Ainda nas configurações, o netilify também nos permite habilitar o *editorial_workflow*, um modo de publicação que utiliza dos pull requests para gerenciar em qual estágio está o seu conteúdo, no meu caso os posts.
+Ainda nas configurações, o netlify também nos permite habilitar o *editorial_workflow*, um modo de publicação que utiliza pull requests para gerenciar em qual estágio está o seu conteúdo, no meu caso os posts.
 
-![Workflow netilify cms](/images/workflow-publish.png "Workflow netilify cms")
+![Workflow netlify cms](/images/workflow-publish.png "Workflow netlify cms")
 
 Dessa forma é possível gerenciar visualmente o que está sendo feito e quando o conteúdo está pronto é só clicar em publicar que a branch do post é mergeada com a branch principal e estará disponível para deploy.
 
-![Pull request no github controlado pelo netilify](/images/pull-request.png "Pull request no github controlado pelo netilify")
+![Pull request no github controlado pelo netlify](/images/pull-request.png "Pull request no github controlado pelo netlify")
 
 **Bônus**: Atualmente publicando o projeto na Vercel ainda é possível ver uma versão com essas branchs antes de serem publicadas, conseguindo avaliar como ficaria em produção e também criar comentários.
 
@@ -126,16 +128,16 @@ A segunda atualização foi mais para experimentar algumas coisas da nova versã
 
 A primeira coisa que fiz foi atualizar a versão do React.js para a 18 e logo em seguida atualizei a versão do Next.js para a última versão estável.
 
-S﻿ei que não é novidade mas ainda não tinha atualizado o projeto para usar o diretório **src** então também já aproveitei e fiz. Achei que ficou bem mais organizado.
+S﻿ei que não é novidade, mas ainda não tinha atualizado o projeto para usar o diretório "**src"** então também já aproveitei e fiz. Achei que ficou bem mais organizado.
 
 ![Estrutura de pastas utilizando src](/images/estrutura-src.png "Estrutura de pastas utilizando src")
 
 Das novas funcionalidades do Next.js as que apliquei no projeto foram:
 
-* **Next/font:** Utilização de um novo sistema de carregamento de fontes auto hospedadas para melhorar o desempenho e evitar o ***layout shift*** (Aquela piscada na tela onde pode se perceber a troca de fonte quando há um certo delay na rede)
+* **Next/font:** Utilização de um novo sistema de carregamento de fontes auto-hospedadas para melhorar o desempenho e evitar o ***layout shift*** (Aquela piscada na tela onde pode se perceber a troca de fonte quando há um certo delay na rede)
 * **Next/image:** A nova versão ﻿﻿trouxe diversas otimizações de desempenho e facilidades de configuração.
 
-Existem outras funcionalidades  que ainda não apliquei aqui mas pretendo utilizar como o **novo diretório app** e também os **ServerComponents** que estão bastante interessantes.
+Existem outras funcionalidades que ainda não apliquei aqui, mas pretendo utilizar como o **novo diretório app** e também os **ServerComponents** que estão bastante interessantes.
 
 Caso queiram conhecer todas as novidades confira [aqui](https://nextjs.org/blog/next-13)
 
