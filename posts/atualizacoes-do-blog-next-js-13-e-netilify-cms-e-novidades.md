@@ -38,13 +38,9 @@ Essa era uma stack muito boa, ferramentas que combinaram muito e que para um pro
 
 A primeira e a mais importante modificação: precisava trocar o CMS.  Pesquisei e vi algumas alternativas, até que conheci o Netlify CMS pelo blog do Willian Justen [neste post aqui](https://willianjusten.com.br/usando-netlify-cms-com-nextjs-vercel-e-github) - inclusive recomendo muito o conteúdo desse cara - gostei bastante de como ele funciona e iria suprir minhas necessidades.
 
-
-
 ### Netlify CMS e a Estrutura Nova
 
 Para quem não conhece o Netlify é um CMS que usa o git para gerenciar o conteúdo e esse conteúdo fica todo dentro do projeto, então não tem a necessidade um banco de dados ou servidor separado.
-
-
 
 ![diagrama da estrutura nova](/images/estrutura-nova-cms.png "Diagrama da estrutura nova")
 
@@ -109,11 +105,7 @@ Para autenticar usando a vercel/next seguir os seguintes passos: 
 
    ![Variáveis de ambiente na vercel](/images/env-vercel.png "Variáveis de ambiente na vercel")
 
-
-
 Com isso configurado, é só logar no github e já terá acesso ao CMS.
-
-
 
 ### Workflow
 
@@ -129,24 +121,24 @@ Dessa forma é possível gerenciar visualmente o que está sendo feito e quando 
 
 ![Interface de adicionar comentário vercel em um aversão ainda não publicada](/images/comentario-vercel-2.png "Interface de adicionar comentário vercel em um aversão ainda não publicada")
 
-
-
 ### Next.js 13
 
 A segunda atualização foi mais para experimentar algumas coisas da nova versão do Next.js 13, vi que tinha bastante coisa legal e que poderia ser aplicada.
 
 A primeira coisa que fiz foi atualizar a versão do React.js para a 18 e logo em seguida atualizei a versão do Next.js para a última versão estável.
 
-Ainda não tinha atualizado o projeto para usar o diretório **src** então também já aproveitei e fiz.
+S﻿ei que não é novidade mas ainda não tinha atualizado o projeto para usar o diretório **src** então também já aproveitei e fiz. Achei que ficou bem mais organizado.
+
+![](/images/estrutura-src.png)
 
 Das novas funcionalidades do Next.js as que apliquei no projeto foram:
 
-* Next/font: Utilização de um novo sistema de carregamento de fontes auto hospedadas para melhorar o desempenho e evitar o ***layout shift*** (Aquela piscada na tela onde pode se perceber a troca de fonte quando há um certo delay na rede)
-* Next/image: A nova versão ﻿﻿trouxe diversas otimizações de desempenho e facilidades de configuração.
+* **Next/font:** Utilização de um novo sistema de carregamento de fontes auto hospedadas para melhorar o desempenho e evitar o ***layout shift*** (Aquela piscada na tela onde pode se perceber a troca de fonte quando há um certo delay na rede)
+* **Next/image:** A nova versão ﻿﻿trouxe diversas otimizações de desempenho e facilidades de configuração.
 
-Existem outras atualizações que ainda não utilizei, caso queira conhecer todas confira [aqui](https://nextjs.org/blog/next-13)
+Existem outras funcionalidades  que ainda não apliquei aqui mas pretendo utilizar como o **novo diretório app** e também os **ServerComponents** que estão bastante interessantes.
 
-
+Caso queiram conhecer todas as novidades confira [aqui](https://nextjs.org/blog/next-13)
 
 ## Conclusão
 
