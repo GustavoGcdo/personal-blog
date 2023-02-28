@@ -4,8 +4,8 @@ publishedAt: 2023-02-28 04:07:27
 image: /images/banner-next-13.png
 title: "Atualizações do blog: Usando Netilify CMS e Next.js 13"
 description: Voltando a escrever aqui no blog, e já começando com novidades!
-  Mudança do Strapi para Netlify CMS e testando algumas das novas
-  funcionalidades do Next.js 13.
+  Conheça a arquitetura do blog, o porquê decidi mudar o CMS para uma plataforma
+  mais simples e testando algumas das novas funcionalidades do Next.js 13.
 ---
 ## Introdução
 
@@ -21,7 +21,7 @@ Claro que para um ambiente de testes e projeto pessoal era super válido, mas n�
 
 ## Estrutura antes da atualização
 
-Na antiga estrutura, o servidor do CMS ficava hospedado dentro do heroku junto com o banco de dados postgreSQL e o frontend em Next.js hospedado na vercel.
+Na antiga estrutura, o servidor do CMS ficava hospedado dentro do heroku com o banco de dados postgreSQL e o frontend em Next.js hospedado na vercel.
 
 ![diagrama com a estrutura anterior](/images/estrutura-antiga.png "Diagrama com a estrutura anterior")
 
@@ -141,4 +141,4 @@ Caso queiram conhecer todas as novidades confira [aqui](https://nextjs.org/blog/
 
 ## Conclusão
 
-Experimentar e aprender novas tecnologias é sempre muito empolgante, eu particularmente gostei muito do resultado final e com certeza me animou para crescer ainda mais. Espero que tenham gostado do conteúdo e ter motivado vocês a continuarem um projeto ou até mesmo iniciar um novo.
+Experimentar e aprender novas tecnologias é sempre muito empolgante, eu particularmente gostei muito do resultado e com certeza me animou para crescer ainda mais. Espero que tenham gostado do conteúdo e ter motivado vocês a continuarem um projeto ou até mesmo iniciar um novo.
