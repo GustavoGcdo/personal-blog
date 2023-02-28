@@ -2,7 +2,7 @@
 layout: post
 publishedAt: 2023-02-22 12:18:26
 image: /images/banner-next-13.png
-title: "Atualizações do blog: Next.js 13 e Netilify CMS e novidades!"
+title: "Atualizações do blog: Usando Netilify CMS e Next.js 13"
 description: Voltando a escrever aqui no blog, e já começando com novidades!
   Testando as novas funcionalidades do Next.js 13 e também a mudança do CMS para
   uma plataforma mais simples. Confira o porquê das mudanças e qual os planos
@@ -10,7 +10,7 @@ description: Voltando a escrever aqui no blog, e já começando com novidades!
 ---
 ## Introdução
 
-Já faz um bom tempo que a plataforma heroku anunciou mudanças no plano gratuito [(mais detalhes aqui)](https://www.youtube.com/watch?v=8f9y6P5H7Go), quando soube nem liguei muito, mas agora que resolvi retomar com as atividades do blog decidi que teria que dar um jeito, pois era lá que estava hospedado o antigo CMS deste blog.
+Já faz um bom tempo que a plataforma heroku anunciou mudanças no plano gratuito [(mais detalhes aqui)](https://www.youtube.com/watch?v=8f9y6P5H7Go) Quando soube nem liguei muito, mas agora que resolvi retomar com as atividades do blog percebi que teria que dar um jeito, pois era lá que estava hospedado o antigo CMS deste blog.
 
 ## Um pouco da história da criação do blog
 
@@ -36,19 +36,23 @@ Essa era uma stack muito boa, ferramentas que combinaram muito e que para um pro
 
 ## Modificações e atualizações
 
-A primeira e a mais importante modificação: precisava trocar o CMS.  Pesquisei e vi algumas alternativas, até que conheci o Netlify CMS pelo blog do Willian Justen [neste post aqui](https://willianjusten.com.br/usando-netlify-cms-com-nextjs-vercel-e-github) - inclusive recomendo muito o conteúdo desse cara -, gostei bastante de como ele funciona e iria suprir minhas necessidades.
+A primeira e a mais importante modificação: precisava trocar o CMS.  Pesquisei e vi algumas alternativas, até que conheci o Netlify CMS pelo blog do Willian Justen [neste post aqui](https://willianjusten.com.br/usando-netlify-cms-com-nextjs-vercel-e-github) - inclusive recomendo muito o conteúdo desse cara - gostei bastante de como ele funciona e iria suprir minhas necessidades.
 
-![diagrama da estrutura nova](/images/estrutura-nova-cms.png "Diagrama da estrutura nova")
 
-### Netlify CMS
+
+### Netlify CMS e a Estrutura Nova
 
 Para quem não conhece o Netlify é um CMS que usa o git para gerenciar o conteúdo e esse conteúdo fica todo dentro do projeto, então não tem a necessidade um banco de dados ou servidor separado.
 
-A configuração dentro do next é bem simples. Seguindo a [documentação](https://www.netlifycms.org/docs/add-to-your-site/) basta criar uma pasta onde ficará o cms   dentro do diretório `/public` e configurar dois arquivos `index.html` e `config.yml`. 
+
+
+![diagrama da estrutura nova](/images/estrutura-nova-cms.png "Diagrama da estrutura nova")
+
+A configuração dentro do next é bem simples. Seguindo a [documentação](https://www.netlifycms.org/docs/add-to-your-site/) basta criar uma pasta onde ficará o cms   dentro do diretório **/public** e configurar dois arquivos **index.html** e **config.yml**. 
 
 ![estrutura de pastas para configurar o cms](/images/estrutura-pastas-cms-0.png "Estrutura de pastas para configurar o cms")
 
-Dentro do arquivo `config.yml` é bem tranquilo configurar suas coleções de dados e seus respectivos campos, qual a pasta onde ele vai usar para colocar o conteúdo e mídias. Segue minha configuração:
+Dentro do arquivo **config.yml** é bem tranquilo configurar suas coleções de dados e seus respectivos campos, qual a pasta onde ele vai usar para colocar o conteúdo e mídias. Segue minha configuração:
 
 ```yaml
 backend:
@@ -83,8 +87,8 @@ collections:
 
 Para autenticar usando a vercel/next seguir os seguintes passos: 
 
-1. Certificar que na *config.yml* o *auth_endpoint* está configurado para`api/auth` (Conforme o arquivo acima)
-2. Instalação do pacote [@openlab/vercel-netlify-cms-github](https://www.npmjs.com/package/@openlab/vercel-netlify-cms-github) e configuração dos arquivos `api/auth.ts` e `api/callback.ts`.
+1. Certificar que na **config.yml** o ***auth_endpoint*** está configurado para **api/auth** (Conforme o arquivo acima)
+2. Instalação do pacote [@openlab/vercel-netlify-cms-github](https://www.npmjs.com/package/@openlab/vercel-netlify-cms-github) e configuração dos arquivos **api/auth.ts** e `api/callback.ts`.
 
    ```typescript
    // src/pages/api/auth.ts
@@ -98,9 +102,10 @@ Para autenticar usando a vercel/next seguir os seguintes passos: 
 3. Configurar um “new OAuth App” para permitir autenticação dentro do github (<https://github.com/settings/developers>)
 
    ![Configuração do aplicativo OAuth github](/images/register-on-github.png "Configuração do aplicativo OAuth github")
-4. Copiar as keys geradas e configurá-las como OAUTH_CLIENT_ID  e OAUTH_CLIENT_SECRET nas variáveis de ambiente da Vercel (Settings/Environment Variables). 
+4. Copiar as keys geradas no github
 
    ![Keys github](/images/github-keys.png "Keys github")
+5. Configurar as keys como OAUTH_CLIENT_ID  e OAUTH_CLIENT_SECRET nas variáveis de ambiente da Vercel Configuração.
 
    ![Variáveis de ambiente na vercel](/images/env-vercel.png "Variáveis de ambiente na vercel")
 
@@ -108,11 +113,21 @@ Para autenticar usando a vercel/next seguir os seguintes passos: 
 
 Com isso configurado, é só logar no github e já terá acesso ao CMS.
 
+
+
+### Workflow
+
 Ainda nas configurações, o netilify também nos permite habilitar o *editorial_workflow*, um modo de publicação que utiliza dos pull requests para gerenciar em qual estágio está o seu conteúdo, no meu caso os posts.
+
+![Workflow netilify cms](/images/workflow-publish.png "Workflow netilify cms")
 
 Dessa forma é possível gerenciar visualmente o que está sendo feito e quando o conteúdo está pronto é só clicar em publicar que a branch do post é mergeada com a branch principal e estará disponível para deploy.
 
-Dica: Publicando o projeto na Vercel ainda é possível ver uma versão com essas branchs antes de serem publicadas, conseguindo avaliar como ficaria em produção e também criar comentários.
+![Pull request no github controlado pelo netilify](/images/pull-request.png "Pull request no github controlado pelo netilify")
+
+**Bônus**: Atualmente publicando o projeto na Vercel ainda é possível ver uma versão com essas branchs antes de serem publicadas, conseguindo avaliar como ficaria em produção e também criar comentários.
+
+
 
 ### Next.js 13
 
