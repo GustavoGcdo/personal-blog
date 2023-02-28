@@ -48,7 +48,65 @@ A configuração dentro do next é bem simples. Seguindo a [documentação](http
 
 ![estrutura de pastas para configurar o cms](/images/estrutura-pastas-cms-0.png "Estrutura de pastas para configurar o cms")
 
-Dentro do arquivo `config.yml` é bem tranquilo configurar suas coleções de dados e seus respectivos campos, qual a pasta onde ele vai usar para colocar o conteúdo e mídias.
+Dentro do arquivo `config.yml` é bem tranquilo configurar suas coleções de dados e seus respectivos campos, qual a pasta onde ele vai usar para colocar o conteúdo e mídias. Segue minha configuração:
+
+```yaml
+backend:
+  name: github
+  repo: GustavoGcdo/personal-blog
+  branch: master
+  squash_merges: true ## Estrategia de juntar todos commits em um quando publicar
+  base_url: https://www.gustavooliveira.dev/
+  auth_endpoint: api/auth/ ## Endpoint para autenticação com git
+
+media_folder: "public/images"
+public_folder: "/images"
+publish_mode: editorial_workflow ## Habilitar modo workflow
+slug:
+  encoding: 'ascii'
+  clean_accents: true
+
+collections:
+  - name: posts
+    label: posts
+    folder: posts 
+    create: true 
+    slug: '{{slug}}' 
+    fields:
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'post' }
+      - { label: 'Date', name: 'publishedAt', widget: 'datetime', format: 'YYYY-MM-DD hh:mm:ss' }
+      - { label: 'Post Image', name: 'image', widget: 'image', required: true }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+```
+
+Para autenticar usando a vercel/next seguir os seguintes passos: 
+
+1. Certificar que na *config.yml* o *auth_endpoint* está configurado para`api/auth` (Conforme o arquivo acima)
+2. Instalação do pacote [@openlab/vercel-netlify-cms-github](https://www.npmjs.com/package/@openlab/vercel-netlify-cms-github) e configuração dos arquivos `api/auth.ts` e `api/callback.ts`.
+
+   ```typescript
+   // src/pages/api/auth.ts
+   export { auth as default } from '@openlab/vercel-netlify-cms-github'
+   ```
+
+   ```typescript
+   // src/pages/api/callback.ts
+   export { callback as default } from '@openlab/vercel-netlify-cms-github'
+   ```
+3. Configurar um “new OAuth App” para permitir autenticação dentro do github (<https://github.com/settings/developers>)
+
+   ![Configuração do aplicativo OAuth github](/images/register-on-github.png "Configuração do aplicativo OAuth github")
+4. Copiar as keys geradas e configurá-las como OAUTH_CLIENT_ID  e OAUTH_CLIENT_SECRET nas variáveis de ambiente da Vercel (Settings/Environment Variables). 
+
+   ![Keys github](/images/github-keys.png "Keys github")
+
+   ![Variáveis de ambiente na vercel](/images/env-vercel.png "Variáveis de ambiente na vercel")
+
+
+
+Com isso configurado, é só logar no github e já terá acesso ao CMS.
 
 Ainda nas configurações, o netilify também nos permite habilitar o *editorial_workflow*, um modo de publicação que utiliza dos pull requests para gerenciar em qual estágio está o seu conteúdo, no meu caso os posts.
 
