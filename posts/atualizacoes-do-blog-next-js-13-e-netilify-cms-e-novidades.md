@@ -24,7 +24,9 @@ Claro que para um ambiente de testes e projeto pessoal era super válido, mas n�
 
 Na antiga estrutura, o servidor do CMS ficava hospedado dentro do heroku junto com o banco de dados postgreSQL e o frontend em Next.js hospedado na vercel.
 
-Utilizando os recursos de geração estática do Next.js através das funções “getStaticProps” e  “getStaticPaths” o frontend buscava os dados da api dos posts e dados que eram dinâmicos das páginas e gerava no build toda a parte estática necessária para que pudesse ser indexado pelos buscadores. 
+![diagrama com a estrutura anterior](/images/estrutura-antiga.png "Diagrama com a estrutura anterior")
+
+Utilizando os recursos de geração estática do Next.js através das funções **getStaticProps** e **getStaticPaths** o frontend buscava os dados da api dos posts e dados que eram dinâmicos das páginas e gerava no build toda a parte estática necessária para que pudesse ser indexado pelos buscadores. 
 
 O mais legal é que se o conteúdo muda o Next faz o fetch novamente para gerar as páginas conforme os novos dados e caso contrário ele os mantém como estavam.
 
@@ -36,19 +38,23 @@ Essa era uma stack muito boa, ferramentas que combinaram muito e que para um pro
 
 A primeira e a mais importante modificação: precisava trocar o CMS.  Pesquisei e vi algumas alternativas, até que conheci o Netlify CMS pelo blog do Willian Justen [neste post aqui](https://willianjusten.com.br/usando-netlify-cms-com-nextjs-vercel-e-github) - inclusive recomendo muito o conteúdo desse cara -, gostei bastante de como ele funciona e iria suprir minhas necessidades.
 
+![diagrama da estrutura nova](/images/estrutura-nova-cms.png "Diagrama da estrutura nova")
+
 ### Netlify CMS
 
 Para quem não conhece o Netlify é um CMS que usa o git para gerenciar o conteúdo e esse conteúdo fica todo dentro do projeto, então não tem a necessidade um banco de dados ou servidor separado.
 
-A configuração dentro do next é bem simples. Seguindo a [documentação](https://www.netlifycms.org/docs/add-to-your-site/) basta criar uma pasta dentro do diretório /public e configurar dois arquivos index.html e config.yml.Dentro do arquivo config.yml é bem tranquilo configurar suas coleções de dados e seus respectivos campos, qual a pasta onde ele vai usar para colocar o conteúdo e mídias.
+A configuração dentro do next é bem simples. Seguindo a [documentação](https://www.netlifycms.org/docs/add-to-your-site/) basta criar uma pasta onde ficará o cms   dentro do diretório `/public` e configurar dois arquivos `index.html` e `config.yml`. 
 
-Ainda nas configurações, o netilify também nos permite habilitar o editorial_workflow, um modo de publicação que utiliza dos pull requests para gerenciar em qual estágio está o seu conteúdo, no meu caso os posts.
+![estrutura de pastas para configurar o cms](/images/estrutura-pastas-cms-0.png "Estrutura de pastas para configurar o cms")
+
+Dentro do arquivo `config.yml` é bem tranquilo configurar suas coleções de dados e seus respectivos campos, qual a pasta onde ele vai usar para colocar o conteúdo e mídias.
+
+Ainda nas configurações, o netilify também nos permite habilitar o *editorial_workflow*, um modo de publicação que utiliza dos pull requests para gerenciar em qual estágio está o seu conteúdo, no meu caso os posts.
 
 Dessa forma é possível gerenciar visualmente o que está sendo feito e quando o conteúdo está pronto é só clicar em publicar que a branch do post é mergeada com a branch principal e estará disponível para deploy.
 
 Dica: Publicando o projeto na Vercel ainda é possível ver uma versão com essas branchs antes de serem publicadas, conseguindo avaliar como ficaria em produção e também criar comentários.
-
-
 
 ### Next.js 13
 
