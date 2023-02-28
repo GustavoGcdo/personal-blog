@@ -10,7 +10,7 @@ description: Voltando a escrever aqui no blog, e já começando com novidades!
 ---
 ## Introdução
 
-Já faz um bom tempo que a plataforma heroku anunciou mudanças no plano gratuito [(mais detalhes aqui)](https://www.youtube.com/watch?v=8f9y6P5H7Go) Quando soube nem liguei muito, mas agora que resolvi retomar com as atividades do blog percebi que teria que dar um jeito, pois era lá que estava hospedado o antigo CMS deste blog.
+Já faz um bom tempo que a plataforma heroku anunciou mudanças no plano gratuito [(mais detalhes aqui)](https://www.youtube.com/watch?v=8f9y6P5H7Go)Quando soube nem liguei muito, mas agora que resolvi retomar com as atividades do blog percebi que teria que dar um jeito, pois era lá que estava hospedado o antigo CMS deste blog.
 
 ## Um pouco da história da criação do blog
 
