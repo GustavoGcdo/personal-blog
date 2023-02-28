@@ -150,5 +150,4 @@ Existem outras atualizações que ainda não utilizei, caso queira conhecer toda
 
 ## Conclusão
 
-Experimentar e aprender novas tecnologias é sempre muito empolgante, eu particularmente gostei muito do resultado final e com certeza me animou para crescer ainda mais. Espero que tenham gostado do conteúdo e\
-ter motivado vocês a continuarem um projeto ou até mesmo iniciar um novo.
+Experimentar e aprender novas tecnologias é sempre muito empolgante, eu particularmente gostei muito do resultado final e com certeza me animou para crescer ainda mais. Espero que tenham gostado do conteúdo e ter motivado vocês a continuarem um projeto ou até mesmo iniciar um novo.
