@@ -129,7 +129,7 @@ A primeira coisa que fiz foi atualizar a versão do React.js para a 18 e logo em
 
 S﻿ei que não é novidade mas ainda não tinha atualizado o projeto para usar o diretório **src** então também já aproveitei e fiz. Achei que ficou bem mais organizado.
 
-![](/images/estrutura-src.png)
+![Estrutura de pastas utilizando src](/images/estrutura-src.png "Estrutura de pastas utilizando src")
 
 Das novas funcionalidades do Next.js as que apliquei no projeto foram:
 
