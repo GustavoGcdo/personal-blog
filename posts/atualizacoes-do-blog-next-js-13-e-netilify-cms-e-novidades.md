@@ -87,8 +87,8 @@ collections:
 
 Para autenticar usando a vercel/next seguir os seguintes passos: 
 
-1. Certificar que na **config.yml** o ***auth_endpoint*** está configurado para **api/auth** (Conforme o arquivo acima)
-2. Instalação do pacote [@openlab/vercel-netlify-cms-github](https://www.npmjs.com/package/@openlab/vercel-netlify-cms-github) e configuração dos arquivos **api/auth.ts** e `api/callback.ts`.
+1. Certificar que na **config.yml** o ***auth_endpoint*** está configurado para **api/auth** (confira linha 7 do arquivo acima).
+2. Instalação do pacote [@openlab/vercel-netlify-cms-github](https://www.npmjs.com/package/@openlab/vercel-netlify-cms-github) e configuração dos arquivos **api/auth.ts** e **api/callback.ts**.
 
    ```typescript
    // src/pages/api/auth.ts
@@ -127,24 +127,28 @@ Dessa forma é possível gerenciar visualmente o que está sendo feito e quando 
 
 **Bônus**: Atualmente publicando o projeto na Vercel ainda é possível ver uma versão com essas branchs antes de serem publicadas, conseguindo avaliar como ficaria em produção e também criar comentários.
 
+![Interface de adicionar comentário vercel em um aversão ainda não publicada](/images/comentario-vercel-2.png "Interface de adicionar comentário vercel em um aversão ainda não publicada")
+
 
 
 ### Next.js 13
 
-A segunda atualização foi mais para experimentar algumas coisas da nova versão do Next.js 13, vi que tinha bastante coisa legal e que poderia ser aplicada e pensei: por que não?!.
+A segunda atualização foi mais para experimentar algumas coisas da nova versão do Next.js 13, vi que tinha bastante coisa legal e que poderia ser aplicada.
 
-A primeira coisa que fiz foi atualizar a versão do react.js para a 18. Logo em seguida atualizei a versão do Next.js para a última versão estável.
+A primeira coisa que fiz foi atualizar a versão do React.js para a 18 e logo em seguida atualizei a versão do Next.js para a última versão estável.
 
-Ainda não tinha atualizado para usar o diretório src então também já aproveitei e fiz.
+Ainda não tinha atualizado o projeto para usar o diretório **src** então também já aproveitei e fiz.
 
-E dentro das novas funcionalidades adaptei:
+Das novas funcionalidades do Next.js as que apliquei no projeto foram:
 
-* Next/font
-* Next/image
-* Next/link
+* Next/font: Utilização de um novo sistema de carregamento de fontes auto hospedadas para melhorar o desempenho e evitar o ***layout shift*** (Aquela piscada na tela onde pode se perceber a troca de fonte quando há um certo delay na rede)
+* Next/image: A nova versão ﻿﻿trouxe diversas otimizações de desempenho e facilidades de configuração.
 
-\[colocar uma imagem do antes e depois de cada um]
+Existem outras atualizações que ainda não utilizei, caso queira conhecer todas confira [aqui](https://nextjs.org/blog/next-13)
+
+
 
 ## Conclusão
 
-Experimentar e aprender novas tecnologias é sempre muito empolgante, eu particularmente gostei muito do resultado final e espero ter motivado vocês a continuarem um projeto ou até mesmo iniciar
+Experimentar e aprender novas tecnologias é sempre muito empolgante, eu particularmente gostei muito do resultado final e com certeza me animou para crescer ainda mais. Espero que tenham gostado do conteúdo e\
+ter motivado vocês a continuarem um projeto ou até mesmo iniciar um novo.
