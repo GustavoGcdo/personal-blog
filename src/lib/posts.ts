@@ -21,15 +21,11 @@ export function getPostBySlug(slug: string): Post {
   const fullPath = path.join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
-
-  
   
   const date = format(new Date(data.publishedAt), "dd 'de' MMMM 'de' yyyy", {
     locale: pt,
   });
 
-  console.log(slug, '-',typeof data.publishedAt);
-  
   return {
     slug: realSlug,
     ...data,
