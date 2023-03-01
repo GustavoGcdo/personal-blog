@@ -31,9 +31,7 @@ O mais legal é que se o conteúdo muda o Next faz o fetch novamente para gerar 
 
 E o que me deixou impressionado é que quando o serviço de banco de dados foi desligado do heroku e a api do strapi parou de funcionar, o blog continuou com as páginas normalmente sem quebrar por falta do conteúdo. 
 
-### KISS (Keep it Simple, Stupid)
-
-Gostei de trabalhar com essas ferramentas e inclusive já apliquei essa stack em projetos onde trabalho. Porém, seguindo o padrão de design KISS "Mantenha isso simples" junto a minha experiência, essa arquitetura e o "problema" que eu queria resolver (um blog simples onde somente eu faço manutenção e escrevo o conteúdo) não tinha necessidade.
+Gostei de trabalhar com essas ferramentas e inclusive já apliquei essa stack em projetos onde trabalho. Porém, a﻿nalisando essa arquitetura e o "problema" que eu queria resolver (um blog simples onde somente eu faço manutenção e escrevo o conteúdo) vi que exagero demais. E﻿sse é um dos casos onde vale lembrar do padrão de design **[KISS "Keep it Simple, Stupid"](https://www.interaction-design.org/literature/article/kiss-keep-it-simple-stupid-a-design-principle)** traduzindo de forma livre, mantenha isso estupidamente simples.
 
 
 
