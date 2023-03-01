@@ -9,11 +9,11 @@ description: Voltando a escrever aqui no blog, e já começando com novidades!
 ---
 ## Introdução
 
-Já faz um bom tempo que a plataforma heroku anunciou mudanças no plano gratuito [(mais detalhes aqui)](https://www.youtube.com/watch?v=8f9y6P5H7Go)Quando soube nem liguei muito, mas agora que resolvi retomar com as atividades do blog percebi que teria que dar um jeito, pois era lá que estava hospedado o antigo CMS deste blog.
+Já faz um bom tempo que a plataforma heroku anunciou mudanças no plano gratuito ([mais detalhes](https://www.youtube.com/watch?v=8f9y6P5H7Go)). Quando soube nem liguei muito, mas agora que resolvi retomar com as atividades do blog percebi que teria que dar um jeito, pois era lá que estava hospedado o antigo CMS deste blog.
 
 ## Um pouco da história da criação do blog
 
-Lembro-me que na época o objetivo era criar algo para poder compartilhar experiências pessoais e documentar meu aprendizado, então pensei: vou criar um blog! Com o blog eu poderia colocar em prática o que estava estudando e também ajudar alguém que esteja querendo aprender algo comigo.
+Lembro que na época o objetivo era criar algo para poder compartilhar experiências pessoais e documentar meu aprendizado, então pensei: vou criar um blog! Com o blog eu poderia colocar em prática o que estava estudando e também ajudar alguém que esteja querendo aprender algo comigo.
 
 Escolhi fazer o blog utilizando Next.js e para a gestão de conteúdo o strapi um headless CMS. O processo de desenvolvimento foi bem legal e aprendi muita coisa, porém depois que terminei fiquei pensando “será que precisava de toda essa arquitetura apenas para um blog simples?”. 
 
@@ -37,13 +37,15 @@ Essa era uma stack ótima, ferramentas que combinaram muito e que para um projet
 
 A primeira e a mais importante modificação: precisava trocar o CMS.  Pesquisei e vi algumas alternativas, até que conheci o Netlify CMS pelo blog do Willian Justen [neste post aqui](https://willianjusten.com.br/usando-netlify-cms-com-nextjs-vercel-e-github) - inclusive recomendo muito o conteúdo desse cara - gostei bastante de como ele funciona e iria suprir minhas necessidades.
 
-### Netlify CMS e a Estrutura Nova
+### Netlify CMS e a estrutura nova
 
 Para quem não conhece o Netlify é um CMS que usa o git para gerenciar o conteúdo e esse conteúdo fica todo dentro do projeto, então não tem a necessidade um banco de dados ou servidor separado.
 
 ![diagrama da estrutura nova](/images/estrutura-nova-cms.png "Diagrama da estrutura nova")
 
-A configuração dentro do next é bem simples. Seguindo a [documentação](https://www.netlifycms.org/docs/add-to-your-site/) basta criar uma pasta onde ficará o cms   dentro do diretório **/public** e configurar dois arquivos **index.html** e **config.yml**. 
+### Configuração Vercel/Next.js
+
+A configuração dentro do next é bem simples. Seguindo a [documentação](https://www.netlifycms.org/docs/add-to-your-site/) basta criar uma pasta onde ficará o cms dentro do diretório **/public** e configurar dois arquivos **index.html** e **config.yml**. 
 
 ![estrutura de pastas para configurar o cms](/images/estrutura-pastas-cms-0.png "Estrutura de pastas para configurar o cms")
 
@@ -97,12 +99,10 @@ Para autenticar usando a vercel/next seguir os seguintes passos: 
 3. Configurar um “new OAuth App” para permitir autenticação dentro do github (<https://github.com/settings/developers>)
 
    ![Configuração do aplicativo OAuth github](/images/register-on-github.png "Configuração do aplicativo OAuth github")
-
-
 4. Copiar as keys geradas no github
 
    ![Keys github](/images/github-keys.png "Keys github")
-5. Configurar as keys como OAUTH_CLIENT_ID e OAUTH_CLIENT_SECRET nas variáveis de ambiente da Vercel Configuração.
+5. Configurar as keys do git como *OAUTH_CLIENT_ID* e *OAUTH_CLIENT_SECRET* nas variáveis de ambiente da Vercel.
 
    ![Variáveis de ambiente na vercel](/images/env-vercel.png "Variáveis de ambiente na vercel")
 
