@@ -19,6 +19,11 @@ const nextConfig = {
         destination: '/admin/index.html',
         permanent: true,
       },
+      {
+        source: '/articles/essencia-da-metodologia-agil',
+        destination: '/articles/essencia-metodologia-agil',
+        permanent: true,
+      },
     ]
   },
 }
