@@ -11,13 +11,9 @@ description: A documentação não é tão importante!.... Até você precisar d
 
 A consequência disso, principalmente em arquitetura de software, está mais perto do que pensamos: falta de organização e padronização, desenvolvedores em ilhas de conhecimento, dificuldade de agregar novas pessoas e claro dificuldade de visualizar problemas que afetam não só o próprio desenvolvimento como também o negócio.
 
-
-
 ## C4 model para documentar e visualizar arquitetura de software
 
 [Simon Brown](https://simonbrown.je/), o criador do modelo C4 Model conseguiu trazer de forma clara e objetiva uma forma de como podemos criar uma boa documentação de arquitetura. Um dos seus grandes pontos fortes na minha opinião é a facilidade de comunicar arquitetura em diferentes níveis de detalhes, conectando as diferentes partes interessadas, de dentro e também de fora do desenvolvimento, com o que realmente precisam e querem saber. Além disso, proporciona uma melhor integração de novas pessoas e ajuda tanto na análise quanto na avaliação da arquitetura vigente.
-
-
 
 ## Visualização em 4 níveis de abstração
 
@@ -27,8 +23,6 @@ C4 model, em geral, é dividido em 4 níveis de abstrações (os 4 Cs), cada um 
 2. Container
 3. Componente
 4. Código
-
-
 
 ## Aprendendo na prática!
 
@@ -58,8 +52,6 @@ Focando no nosso exemplo, fica evidente que estamos nos preparando para uma carg
 
 Fica simples visualizar como o sistema irá tomar forma e ainda comunicar isso com outras pessoas. Eu inclusive já utilizei essa visão para planejar uma implantação com o time de infraestrutura, e tudo ficou mais claro.
 
-
-
 ### Nível de Componentes
 
 Escolhendo o container do backend para ampliarmos, podemos ver que aqui temos muito mais detalhes. Nesta visão, o foco é ver como o container é composto de vários componentes, cada um com suas responsabilidades e comunicações. Esses componentes podem ser um conjunto de classes, módulos e até mesmo um grupo de funções, contanto que consiga comunicar bem o que faz e por que está ali.
@@ -75,8 +67,6 @@ Observando o exemplo, conseguimos ver o papel de cada componente, integrações 
 
 Como podemos ver, esse é um diagrama que pode ser bem mais frágil as mudanças devido à quantidade de detalhes, então, somente faça se ele agregar valor ao time ou projeto.
 
-
-
 ### Nível de Código
 
 Por fim, chegamos ao último nível de “zoom”, agora ampliando algum componente para visualizar como ele é implementado. Podemos usar o diagrama de classe UML ou similares (Algumas IDEs geram este tipo de diagrama)
@@ -89,8 +79,16 @@ O próprio autor recomenda utilizar somente em componentes extremamente importan
 
 No exemplo ampliamos o componente “Registrar Pedido Use Case”, utilizei este diagrama para comunicar a inversão de dependências, objeto de retorno e uma possível exceção. Você pode acrescentar detalhamento, como nome de propriedades ou até mesmo com seus parâmetros caso precise. Confesso que, desde quando passei a usar o C4 model para documentar os sistemas onde trabalho, ainda não precisei chegar a este nível de detalhe. Mas mesmo assim, é válido tê-lo na caixa de ferramentas para quando for necessário discutir algo mais baixo nível ou entender um cenário complexo de uma implementação.
 
-
-
 ## Conclusão
 
 Minhas experiências adotando o modelo C4 foram bastante positivas. Ele não só me ajudou na organização, nas estratégias e nas decisões relacionadas à arquitetura dos softwares, mas também se mostrou uma ferramenta valiosa de comunicação com outras equipes e pessoas não técnicas. Contudo, recomendo sempre analisar bem e utilizar o modelo de forma estratégica para agregar valor, escolhendo cuidadosamente os níveis de detalhes que o time e projeto precisam, bem como o público que consumirá as informações. Não faça apenas por fazer, pois só gerará burocracia e logo será abandonado.
+
+
+
+## Links úteis
+
+\- <https://c4model.com/> (O site oficial tem muita informação boa e clara além de ter várias dicas de ferramentas para criar os diagramas e outros diagramas, recomendo muito dar uma olhada)
+
+\-﻿ <https://draw.io/> (Utilizei essa ferramenta para produzir os diagramas, é bem fácil de utilizar para exemplos mais simples)
+
+\- <https://www.youtube.com/watch?v=f0Dp6Ob2guc> (Uma live top do Arquiteto das galáxias sobre o assunto)
