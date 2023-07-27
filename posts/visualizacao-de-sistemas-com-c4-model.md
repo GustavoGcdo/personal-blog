@@ -1,6 +1,7 @@
 ---
 layout: post
 publishedAt: 2023-07-26 11:32:12
+image: /images/capa-2.png
 title: Visualização de sistemas com C4 model
 description: A documentação não é tão importante!.... Até você precisar dela
 ---
