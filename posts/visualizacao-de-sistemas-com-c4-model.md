@@ -5,8 +5,8 @@ image: /images/capa-2.png
 title: Visualização de sistemas com C4 model
 description: Nunca foi tão necessário criar uma boa documentação até você
   precisar de uma! Vamos explorar o modelo C4 para documentação de arquitetura
-  de software e como ele pode simplificar alguns aspectos que antes difíceis de
-  serem padronizados
+  de software e como ele pode simplificar alguns aspectos que antes eram
+  difíceis de serem padronizados
 ---
 ## Introdução
 
