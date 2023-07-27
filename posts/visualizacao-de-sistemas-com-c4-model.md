@@ -39,7 +39,7 @@ Aqui está o começo de tudo. Estamos em uma visão de mais alto nível da arqui
 
 **Público-alvo:** todos, técnicos e não técnicos, dentro e fora da equipe de desenvolvimento de software.
 
-Conseguimos identificar de cara as principais personas (Cliente e Administrador), ambas interagindo com o sistema principal, que por sua vez tem duas dependências externas (Sistema de Pagamento e Sistema de Envio de E-mails). Essas informações, mesmo que aparentemente simples, já são relevantes para diversas tomadas de decisões de arquitetura, exemplo: qual serviço pode ser escolhido para o sistema de pagamento? Qual a expectativa de quantidade de acessos pelos clientes?
+Conseguimos identificar de cara as principais personas (Cliente e Administrador), ambas interagindo com o sistema principal, que por sua vez tem duas dependências externas (Sistema de Pagamento e Sistema de Envio de E-mails). Essas informações, mesmo que aparentemente simples, já são relevantes para diversas tomadas de decisões de arquitetura, tais como: discutir qual serviço pode ser escolhido para o sistema de pagamento ou qual a expectativa de quantidade de acessos pelos clientes.
 
 ### Nível de Container
 
