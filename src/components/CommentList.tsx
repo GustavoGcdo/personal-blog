@@ -29,7 +29,7 @@ export default function CommentList({ comments = [], onDelete }: Props) {
                 />
               </div>
 
-              <div className="flex-grow bg-white px-3 py-2 rounded relative">
+              <div className="flex-grow bg-white dark:bg-stone-800 px-3 py-2 rounded relative">
                 <div className="flex space-x-2 w-full">
                   <b>{comment.user.name}</b>
                   <time className="text-gray-400 grow">{distanceToNow(comment.created_at)}</time>
