@@ -5,8 +5,11 @@ import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Layout from '../../components/Layout';
-import { getPostBySlug, getSortedPostsData, Post } from '../../lib/posts';
+import { getPostBySlug, getSortedPostsData } from '../../lib/posts';
 import { countReadMinutes } from '../../lib/word-read-calc';
+import { useAuth0 } from '@auth0/auth0-react';
+import Comments from '../../components/Comments';
+import { Post } from '../../interfaces';
 
 type Props = {
   article: Post;
@@ -25,9 +28,9 @@ const ArticlePage = ({ article }: Props) => {
           images: [
             {
               url: 'https://www.gustavooliveira.dev' + article.image,
-              alt: article.title
-            }
-          ]
+              alt: article.title,
+            },
+          ],
         }}
       />
 
@@ -71,6 +74,7 @@ const ArticlePage = ({ article }: Props) => {
             </ReactMarkdown>
           </div>
         </div>
+        <Comments />
       </Layout>
     </>
   );

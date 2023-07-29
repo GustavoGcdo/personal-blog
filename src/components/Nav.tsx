@@ -30,7 +30,7 @@ const Nav = () => {
         <div className="flex flex-row space-x-3 text-xl ">
           <div onClick={toggleTheme}>
             <svg
-              className="h-8 w-8 cursor-pointer dark:fill-white dark:text-white   text-black"
+              className="h-8 w-8 cursor-pointer dark:fill-white dark:text-white text-black"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
