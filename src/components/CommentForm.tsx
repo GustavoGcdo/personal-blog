@@ -23,7 +23,13 @@ const CommentForm = ({ text, setText, onSubmit }: Props) => {
           <button
             type="button"
             className="text-red-500 border-red-500 border px-7 py-2 sm:px-4 rounded"
-            onClick={() => logout()}
+            onClick={() =>
+              logout({
+                logoutParams: {
+                  returnTo: window.location.origin,
+                },
+              })
+            }
           >
             Sair
           </button>
