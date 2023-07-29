@@ -14,7 +14,7 @@ const Comments = () => {
       {!isAuthenticated && <CommentLogin />}
       {isAuthenticated && <CommentForm onSubmit={onSubmit} text={text} setText={setText} />}
 
-      <h2 className="dark:text-white  self-start font-medium text-2xl mt-10 mb-5 px-2 sm:px-10">
+      <h2 className="dark:text-white  self-start font-medium text-2xl mt-10 px-2">
         Comentários
       </h2>
 

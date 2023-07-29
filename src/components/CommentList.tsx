@@ -11,7 +11,7 @@ export default function CommentList({ comments = [], onDelete }: Props) {
   const { user } = useAuth0();
 
   return (
-    <div className="space-y-6 mt-10">
+    <div className="space-y-6 mt-5">
       {comments?.length > 0 ? (
         comments.map((comment) => {
           const isAuthor = user && user.sub === comment.user.sub;
@@ -59,7 +59,7 @@ export default function CommentList({ comments = [], onDelete }: Props) {
           );
         })
       ) : (
-        <div>Ainda não existem comentários aqui</div>
+        <div className='p-3 bg-gray-300 dark:bg-stone-700 dark:text-stone-400 text-gray-500 rounded'>Ainda não existem comentários aqui 😥</div>
       )}
     </div>
   );
