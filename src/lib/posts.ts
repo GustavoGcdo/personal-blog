@@ -3,18 +3,9 @@ import path from 'path';
 import matter from 'gray-matter';
 import { format } from 'date-fns';
 import { pt } from 'date-fns/locale';
+import { Post } from '../interfaces';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
-
-export type Post = {
-  slug: string;
-  title: string;
-  description: string;
-  formatedDate: string;
-  publishedAt: string;
-  content: string;
-  image: string;
-};
 
 export function getPostBySlug(slug: string): Post {
   const realSlug = slug.replace(/\.md$/, '');

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { countReadMinutes } from '../lib/word-read-calc';
-import { Post } from '../lib/posts';
+import { Post } from '../interfaces';
 
 type Props = {
   article: Post;
