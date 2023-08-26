@@ -1,7 +1,7 @@
 ---
 layout: post
 publishedAt: 2023-08-25 07:32:33
-image: /images/celulares.jpg
+image: /images/software-developer-mobile.jpeg
 title: Como criar uma câmera utilizando javascript
 description: Como construir um componente do zero que acessa sua câmera  e tira
   foto utilizando apenas as funcionalidades nativas do navegador
