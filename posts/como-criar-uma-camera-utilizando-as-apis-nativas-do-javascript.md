@@ -100,3 +100,11 @@ Não podemos esquecer de chamar o método startCamera (linha 90) logo após para
 ## Passo 4: Troca entre as câmeras
 
 ![código javascript para troca entre as cameras](/images/passo-4.png "Código javascript para troca entre as cameras")
+
+**Linha 112:** Recuperação do botão de troca de câmera no DOM;
+
+**Linhas 114-118:** Verificando qual câmera está ativa no momento através da variável de escopo mais global currentFacingMode e alternando entre as câmeras.
+
+**Linha 120:** Inicializando a câmera passando o novo facingMode. 
+
+**Observação:** Caso o dispositivo não suporte o facingMode: ‘front’ que corresponde a câmera frontal, o método getUserMedia sempre inicializará com a câmera padrão (environment).
