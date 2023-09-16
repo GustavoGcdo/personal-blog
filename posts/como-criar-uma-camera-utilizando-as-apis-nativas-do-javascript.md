@@ -115,8 +115,24 @@ Não podemos esquecer de chamar o método startCamera (linha 90) logo após para
 
 **Linha 120:** Inicializando a câmera passando o novo facingMode. 
 
-**Observação:** Caso o dispositivo não suporte o facingMode: ‘front’ que corresponde a câmera frontal, o método getUserMedia sempre inicializará com a câmera padrão (environment). 
+
+
+#### Modificação no método "*startCamera*":
+
+![alteração código método start e novo metódo stopCamera](/images/passo-4-2.png "Alteração código método start e novo metódo stopCamera")
+
+Adicionei um novo método chamado **stopCamera (linhas 90-95)** para desabilitar a câmera atual (verificando se ela está ativa antes) e possibilitando a troca entre as duas câmeras. Daí é só chamar este método toda vez que precisarmos inicializar a câmera com novas propriedades;
+
+**Observação:** Caso o dispositivo não suporte o facingMode: ‘user’ que corresponde a câmera frontal, o método **getUserMedia** sempre inicializará com a câmera padrão (*environment*). 
 
 
 
-## Código fonte
+## Código-fonte 
+
+T﻿odo código-fonte do exemplo se encontra neste repositório do github;
+
+T﻿ambém está publicado na vercel e pode ser acessado por esse link.
+
+## Conclusão
+
+E﻿spero que tenham gostado e aprendido um pouco com este tutorial assim como eu. Caso tenham dúvidas podem deixar nos comentários aqui em baixo ou me mandar em um dos meus contatos deixados na página [sobre mim](https://www.gustavooliveira.dev/about).
