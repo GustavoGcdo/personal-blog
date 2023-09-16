@@ -10,8 +10,6 @@ description: Como construir um componente do zero que acessa sua câmera  e tira
 
 Recentemente precisei implementar uma câmera na web utilizando as apis nativas do javascript para resolver um problema relacionado ao conflito do uso de memória com câmeras nativas e o navegador onde estava sendo executado a aplicação.
 
-
-
 ## Contexto do problema
 
 Temos uma aplicação web que em uma das suas principais funcionalidades era tirar várias fotos e gravar vídeos além de coletar outras informações de texto e como toda aplicação client side isso tudo fica na memória do navegador até o usuário subir para o backend. 
@@ -28,8 +26,6 @@ Após várias tentativas de otimização de memória e pesquisas na internet, en
 
 Como eu precisava trazer uma solução em um curto prazo, eu não poderia sugerir que tínhamos que refazer toda a solução web para nativa então decidi usar javascript, html e css para criar uma câmera na web evitando assim que o usuário saísse da aplicação, ganhando um pouco de tempo para planejar uma solução definitiva.
 
-
-
 ## Mãos à obra
 
 Agora que já temos um contexto e uma motivação, bora ver como ficou a implementação dessa câmera passo a passo. 
@@ -42,19 +38,15 @@ Ferramentas utilizadas:
 
 Optei por utilizar essas ferramentas no exemplo para focar mais na funcionalidade, assim você pode utilizar este exemplo e transportar para qualquer outro framework como React, Angular ou Vue.js.
 
-
-
 ## Passo 1: Layout da câmera
 
 Tentei reproduzir o mais próximo a uma câmera de celular padrão. O resultado ficou assim:
 
-
-
-
+![preview do layout da camera](/images/passo-1-1.png "Preview do layout da camera")
 
 O código html:
 
-
+![código html com a estrutura básica da camera](/images/passo-1.png "Código html com a estrutura básica da camera")
 
 Explicações importantes
 
@@ -68,11 +60,9 @@ Explicações importantes
 
 **Linha 48-49:** tag de imagem que será responsável por mostrar a imagem tirada. É importante acrescentar o atributo ***'crossorigin="anonymous"'***, pois o resultado do snapshot será uma url criada a partir de um Blob que talvez o navegador não conheça e impeça de ser usada.
 
-
-
-
-
 ## Passo 2: Pré-Visualizar a câmera
+
+![código javascript com a função de start para a camera](/images/passo-2.png "Código javascript com a função de start para a camera")
 
 Para pré-visualizar a câmera é preciso pedir a permissão ao usuário, fazemos isso através do método ***navigator.mediaDevices.getUserMedia (linha 73)*** que já recebe por parâmetro as configurações que vamos usar na câmera.
 
@@ -82,19 +72,17 @@ Descrição dos parâmetros que estamos usando:
 
 **video.width** e **video.height**: resolução do vídeo altura e largura (aceita ideal, max, min);
 
-
-
 > Todas as propriedades podem ser encontradas na documentação oficial [aqui](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia).
-
-
 
 Após a permissão concedida, a promise do método getUserMedia retorna um objeto stream que configuramos como fonte para o elemento de vídeo, mostrando o assim preview da câmera. (linha 86). 
 
 Não podemos esquecer de chamar o método startCamera (linha 90) logo após para que tudo isso possa acontecer.
 
+## Passo 3: Tirar uma foto
+
+![](/images/passo-3.png)
 
 
-## Passo 3: Tirar uma foto![](https://lh4.googleusercontent.com/iUyu2GNpRz6mfvYuRJddvqAqcuNtudFODdNoRJwOyhP9-K1a3U-CL8e3o2WHV0WZf610d5TBcSTe-c13EPuChb7o1avbTA0qg_g1f1-soJoKp4Fxgy60T1FeknXsrLSeOSocGtmx_rRBJULXrD6nqKY)
 
 **Linha 92-96**: Recuperamos os elementos que iremos manipular para tirar a foto (btnCamera, canvas), ocultar o preview da câmera (videoPreviewContainer) e mostrar a foto tirada (photoPreviewContainer, photoPreview).
 
@@ -107,6 +95,4 @@ Não podemos esquecer de chamar o método startCamera (linha 90) logo após para
 * Criamos uma url a partir do objeto blob e configuramos no preview da foto (linha 106)
 * Ocultamos o preview da câmera e habilitamos o preview da foto (linhas 107 e 108)
 
-
-
-## Passo 4: Troca entre as câmeras![](https://lh6.googleusercontent.com/gMAVk0bgDGhPHMZqovnlWcKR-TFgG_igks535Wumkpl8M-ZEAa1pCJO6jB4hNmmhbI8BNro2lMFcyXkMl57CrVjgKX-Tt1mDhJa0_upGQ4vqGr9Xxjr5bMmcE1MzawzU83oPyynrG7LL0lX1BFkRzKk)
+## Passo 4: Troca entre as câmeras
