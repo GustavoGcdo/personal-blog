@@ -18,7 +18,11 @@ Mas o problema era que no tempo de tirar as fotos e abrir o aplicativo de câmer
 
 Após várias tentativas de otimização de memória e pesquisas na internet, encontrei alguém com o mesmo problema no stackoverflow e não foi nada animador.
 
-<https://stackoverflow.com/questions/14274727/android-browser-refreshes-page-after-selecting-file-via-input-element>
+
+
+> [L﻿ink](https://stackoverflow.com/questions/14274727/android-browser-refreshes-page-after-selecting-file-via-input-element) para a discussão original
+
+
 
 ![](https://lh5.googleusercontent.com/jzQ-NJDqdRDodIi6ZOnf0wqIWOoic_GIa_lXg3PiZoshJldOgdNi1NYyIsLtuIdImx2fJgJHV0aCouG8CRNVTBZ6J2BH731JfODUXIIt-pl-lRcQE9DNrnzO_6qvtPuk3ZVd3PLS28baJyPkq1iGXBI)
 
@@ -81,8 +85,6 @@ Não podemos esquecer de chamar o método startCamera (linha 90) logo após para
 ## Passo 3: Tirar uma foto
 
 ![](/images/passo-3.png)
-
-
 
 **Linha 92-96**: Recuperamos os elementos que iremos manipular para tirar a foto (btnCamera, canvas), ocultar o preview da câmera (videoPreviewContainer) e mostrar a foto tirada (photoPreviewContainer, photoPreview).
 
