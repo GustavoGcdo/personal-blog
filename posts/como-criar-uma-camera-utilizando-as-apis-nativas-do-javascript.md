@@ -18,11 +18,7 @@ Mas o problema era que no tempo de tirar as fotos e abrir o aplicativo de câmer
 
 Após várias tentativas de otimização de memória e pesquisas na internet, encontrei alguém com o mesmo problema no stackoverflow e não foi nada animador.
 
-
-
 > [L﻿ink](https://stackoverflow.com/questions/14274727/android-browser-refreshes-page-after-selecting-file-via-input-element) para a discussão original
-
-
 
 ![](https://lh5.googleusercontent.com/jzQ-NJDqdRDodIi6ZOnf0wqIWOoic_GIa_lXg3PiZoshJldOgdNi1NYyIsLtuIdImx2fJgJHV0aCouG8CRNVTBZ6J2BH731JfODUXIIt-pl-lRcQE9DNrnzO_6qvtPuk3ZVd3PLS28baJyPkq1iGXBI)
 
@@ -42,13 +38,9 @@ Ferramentas utilizadas:
 
 Optei por utilizar essas ferramentas no exemplo para focar mais na funcionalidade, assim você pode utilizar este exemplo e transportar para qualquer outro framework como React, Angular ou Vue.js.
 
-
-
 ### INFORMAÇÃO IMPORTANTE!
 
 \- As funções que acessam câmera só funcionam em um contexto seguro como **localhost** ou **https** por questões de segurança implementadas pelo navegador ([veja o link](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia#privacy_and_security))
-
-
 
 ## Passo 1: Layout da câmera
 
@@ -115,8 +107,6 @@ Não podemos esquecer de chamar o método startCamera (linha 90) logo após para
 
 **Linha 120:** Inicializando a câmera passando o novo facingMode. 
 
-
-
 #### Modificação no método "*startCamera*":
 
 ![alteração código método start e novo metódo stopCamera](/images/passo-4-2.png "Alteração código método start e novo metódo stopCamera")
@@ -127,11 +117,11 @@ Adicionei um novo método chamado **stopCamera (linhas 90-95)** para desabilitar
 
 
 
-## Código-fonte 
+## Código-fonte
 
-T﻿odo código-fonte do exemplo se encontra neste repositório do github;
+T﻿odo código-fonte do exemplo se encontra neste repositório do [github](https://github.com/GustavoGcdo/camera-with-js);
 
-T﻿ambém está publicado na vercel e pode ser acessado por esse link.
+T﻿ambém está publicado na vercel e pode ser acessado por esse [link](https://camera-with-js.vercel.app/).
 
 ## Conclusão
 
