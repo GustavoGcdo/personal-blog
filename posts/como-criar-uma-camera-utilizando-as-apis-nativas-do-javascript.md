@@ -98,3 +98,5 @@ Não podemos esquecer de chamar o método startCamera (linha 90) logo após para
 * Ocultamos o preview da câmera e habilitamos o preview da foto (linhas 107 e 108)
 
 ## Passo 4: Troca entre as câmeras
+
+![código javascript para troca entre as cameras](/images/passo-4.png "Código javascript para troca entre as cameras")
