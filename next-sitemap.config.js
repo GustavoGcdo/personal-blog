@@ -3,4 +3,5 @@ module.exports = {
   siteUrl: process.env.SITE_URL || 'https://www.gustavooliveira.dev',
   generateRobotsTxt: true, // (optional)
   // ...other options
+  exclude: ['/terms', '/policy']
 }
