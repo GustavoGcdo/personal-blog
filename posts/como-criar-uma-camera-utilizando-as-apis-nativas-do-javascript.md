@@ -1,6 +1,6 @@
 ---
 layout: post
-publishedAt: 2023-08-25 07:32:33
+publishedAt: 2023-09-16 12:21:37
 image: /images/halide-camera-app-header-scaled.jpg
 title: Como criar uma câmera utilizando Javascript HTML5 e CSS3
 description: Como construir um componente do zero que acessa sua câmera  e tira
