@@ -42,6 +42,14 @@ Ferramentas utilizadas:
 
 Optei por utilizar essas ferramentas no exemplo para focar mais na funcionalidade, assim você pode utilizar este exemplo e transportar para qualquer outro framework como React, Angular ou Vue.js.
 
+
+
+### INFORMAÇÃO IMPORTANTE!
+
+\- As funções que acessam câmera só funcionam em um contexto seguro como **localhost** ou **https** por questões de segurança implementadas pelo navegador ([veja o link](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia#privacy_and_security))
+
+
+
 ## Passo 1: Layout da câmera
 
 Tentei reproduzir o mais próximo a uma câmera de celular padrão. O resultado ficou assim:
@@ -107,4 +115,8 @@ Não podemos esquecer de chamar o método startCamera (linha 90) logo após para
 
 **Linha 120:** Inicializando a câmera passando o novo facingMode. 
 
-**Observação:** Caso o dispositivo não suporte o facingMode: ‘front’ que corresponde a câmera frontal, o método getUserMedia sempre inicializará com a câmera padrão (environment).
+**Observação:** Caso o dispositivo não suporte o facingMode: ‘front’ que corresponde a câmera frontal, o método getUserMedia sempre inicializará com a câmera padrão (environment). 
+
+
+
+## Código fonte
