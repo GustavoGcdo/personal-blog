@@ -90,16 +90,11 @@ No início da minha tag *<script>* declarei as variáveis que serão utilizadas 
   let streamCamera;
   let secondsElapsed = 0;
   let intervalId;
-
 ```
 
-
-
-### P﻿asso 3: Iniciar/Pausar a câmera 
+### P﻿asso 3: Iniciar/Pausar a câmera
 
 I﻿niciar a câmera é exatamente igual para quando vamos fazer uma câmera apenas para tirar uma foto. Primeiro declaramos uma função que será responsável por chamar a api *getUserMedia* do navegador que caso obtenha sucesso irá retornar um stream no qual vamos direcionar para um objeto de vídeo e também iremos salvar este stream nas nossas variáveis de controle, pois iremos usar tanto para a gravação quanto para parar a câmera quando não estivermos usando.
-
-
 
 ```javascript
   const startCamera = (facingMode = 'environment') => {
@@ -224,8 +219,6 @@ Em sequência estamos:
 
 \- Parando o timer (linha 26).
 
-
-
 **L﻿inhas 29-31:** Definimos o tamanho do *chunk* em 1 segundo, iniciamos a gravação juntamente com o timer.
 
 A﻿ função que chama o ***startRecording*** é essa:
@@ -235,8 +228,6 @@ A﻿ função que chama o ***startRecording*** é essa:
     startRecording();
   });
 ```
-
-
 
 P﻿ara parar de gravar o vídeo iremos usar a função: 
 
@@ -250,13 +241,10 @@ const stopRecording = () => {
 E iremos chamar a função no clique do botão de stop:
 
 ```javascript
-
   btnStopCamera.addEventListener('click', () => {
     stopRecording();
   })
 ```
-
-
 
 #### Funções que manipulam o timer (iniciar, formatar e parar)
 
@@ -282,13 +270,9 @@ E iremos chamar a função no clique do botão de stop:
   }
 ```
 
-
-
 A﻿pós gravar se deu tudo certo, a tela ficará assim:
 
 ![Pré-visualização do video gravado](/images/apos-gravacao.png "Pré-visualização do video gravado")
-
-
 
 #### F﻿unções utilizadas para manipular a tela e resetar os controles
 
@@ -330,16 +314,16 @@ A﻿pós gravar se deu tudo certo, a tela ficará assim:
   });
 ```
 
-
-
-> **D﻿ICA:** É﻿ muito impotante que você pare a utilização da camera quando não estiver utilizando para evitar que sua aplicação use muita memória ou tenha problemas futuros ao tentar abrir uma camera que ficou aberta por engano. Por isso chamamos o ***stopCamera** nas **linhas 34 e 15*** 
+> **D﻿ICA:** É﻿ muito impotante que você pare a utilização da camera quando não estiver utilizando para evitar que sua aplicação use muita memória ou tenha problemas futuros ao tentar abrir uma camera que ficou aberta por engano. Por isso chamamos o **\*stopCamera** nas **linhas 34 e 15*** 
 
 ### Conclusão
 
-S﻿e você chegou até aqui e conseguiu entender e reproduzir este exemplo, meus parabéns! 
+Antes de finalizar gostaria de agradecer o contato da Michelle Corrêa que sua dúvida resultou na criação deste post. E﻿spero ter ajudado a construir esta solução e aprendido um pouco sobre como funciona a gravação de vídeos usando recursos do navegador. 
+
+Caso tenham dúvidas podem deixar nos comentários aqui em baixo ou me mandar em um dos meus contatos deixados na página [sobre mim](https://www.gustavooliveira.dev/about).
 
 
 
 ### Código-fonte
 
-T﻿odo código-fonte do exemplo se encontra neste repositório do [github](https://github.com/GustavoGcdo/camera-with-js)
+T﻿odo código-fonte tanto deste exemplo quanto do tutorial anterior se encontra neste repositório [github](https://github.com/GustavoGcdo/camera-with-js)
