@@ -316,14 +316,14 @@ A﻿pós gravar se deu tudo certo, a tela ficará assim:
 
 > **D﻿ICA:** É﻿ muito impotante que você pare a utilização da camera quando não estiver utilizando para evitar que sua aplicação use muita memória ou tenha problemas futuros ao tentar abrir uma camera que ficou aberta por engano. Por isso chamamos o **stopCamera** nas **linhas 34 e 15** 
 
+### Código-fonte
+
+T﻿odo código-fonte tanto deste exemplo quanto do tutorial anterior se encontra neste repositório [github](https://github.com/GustavoGcdo/camera-with-js)
+
+
+
 ### Conclusão
 
 Antes de finalizar gostaria de agradecer o contato da Michelle Corrêa que sua dúvida resultou na criação deste post. E﻿spero ter ajudado a construir esta solução e aprendido um pouco sobre como funciona a gravação de vídeos usando recursos do navegador. 
 
 Caso tenham dúvidas podem deixar nos comentários aqui em baixo ou me mandar em um dos meus contatos deixados na página [sobre mim](https://www.gustavooliveira.dev/about).
-
-
-
-### Código-fonte
-
-T﻿odo código-fonte tanto deste exemplo quanto do tutorial anterior se encontra neste repositório [github](https://github.com/GustavoGcdo/camera-with-js)
