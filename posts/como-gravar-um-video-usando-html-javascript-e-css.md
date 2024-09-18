@@ -256,6 +256,8 @@ E iremos chamar a função no clique do botão de stop:
   })
 ```
 
+
+
 #### Funções que manipulam o timer (iniciar, formatar e parar)
 
 **Observação:** Estas são apenas funções genéricas geradas pelo chatGPT para formatar os segundos passados no formato 00:00 e atualizar o texto da div do timer.
@@ -282,6 +284,12 @@ E iremos chamar a função no clique do botão de stop:
 
 
 
+A﻿pós gravar se deu tudo certo, a tela ficará assim:
+
+![Pré-visualização do video gravado](/images/apos-gravacao.png "Pré-visualização do video gravado")
+
+
+
 #### F﻿unções utilizadas para manipular a tela e resetar os controles
 
 ```javascript
@@ -294,4 +302,44 @@ E iremos chamar a função no clique do botão de stop:
     secondsElapsed = 0;
     stopTimer();
   }
+ 
+ btnCloseDialog.addEventListener('click', () => {
+    dialogCamera.classList.toggle('hidden');
+
+    resetControls();
+    stopCamera();
+  });
+
+  btnRepeat.addEventListener('click', () => {
+    previewRecorded.src = '';
+
+    photoPreviewContainer.classList.replace('flex', 'hidden');
+    videoPreviewContainer.classList.toggle('hidden');
+
+    resetControls();
+    startCamera();
+  });
+
+  btnOk.addEventListener('click', () => {
+    dialogCamera.classList.toggle('hidden');
+    photoPreviewContainer.classList.replace('flex', 'hidden');
+    videoPreviewContainer.classList.toggle('hidden');
+
+    resetControls();
+    stopCamera();
+  });
 ```
+
+
+
+> **D﻿ICA:** É﻿ muito impotante que você pare a utilização da camera quando não estiver utilizando para evitar que sua aplicação use muita memória ou tenha problemas futuros ao tentar abrir uma camera que ficou aberta por engano. Por isso chamamos o ***stopCamera** nas **linhas 34 e 15*** 
+
+### Conclusão
+
+S﻿e você chegou até aqui e conseguiu entender e reproduzir este exemplo, meus parabéns! 
+
+
+
+### Código-fonte
+
+T﻿odo código-fonte do exemplo se encontra neste repositório do [github](https://github.com/GustavoGcdo/camera-with-js)
