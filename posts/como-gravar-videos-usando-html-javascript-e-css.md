@@ -315,7 +315,7 @@ A﻿pós gravar se deu tudo certo, a tela ficará assim:
   });
 ```
 
-**D﻿ICA:** É﻿ muito importante que você pare a utilização da câmera quando não estiver utilizando para evitar que sua aplicação use muita memória ou tenha problemas futuros ao tentar abrir uma câmera que ficou aberta por engano. Por isso chamamos o **stopCamera** nas **linhas 34 e 15** 
+**D﻿ICA:** É﻿ muito importante que você pare a utilização da câmera quando não estiver utilizando para evitar que sua aplicação use muita memória ou tenha problemas futuros ao tentar abrir uma câmera que ficou aberta por engano. Por isso chamamos o **stopCamera** nas **linhas 15 e 34** 
 
 ## Código-fonte
 
@@ -323,6 +323,6 @@ T﻿odo código-fonte tanto deste exemplo quanto do tutorial anterior se encontr
 
 ## Conclusão
 
-Antes de finalizar gostaria de agradecer o contato da Michelle Corrêa que sua dúvida resultou na criação deste post. E﻿spero ter ajudado a construir esta solução e aprendido um pouco sobre como funciona a gravação de vídeos usando recursos do navegador. 
+Antes de finalizar, gostaria de agradecer à Michelle Corrêa pelo contato e pela dúvida, que inspirou a criação deste post. Espero que o conteúdo tenha sido útil e ajudado a entender melhor como funciona a gravação de vídeos utilizando os recursos do navegador. Muito obrigado a todos!
 
 Caso tenham dúvidas podem deixar nos comentários aqui em baixo ou me mandar em um dos meus contatos deixados na página [sobre mim](https://www.gustavooliveira.dev/about).
