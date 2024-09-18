@@ -51,6 +51,11 @@ const ArticlePage = ({ article }: Props) => {
           <div className="mt-5 prose prose-lg prose-pre:bg-zinc-800 prose-pre:px-2 prose-pre:py-0 dark:prose-invert prose-p:font-sans max-w-none mx-auto prose-h1:mt-10 prose-img:max-w-4/5 prose-img:mx-auto">
             <ReactMarkdown
               components={{
+                a: ({ node, ...props }) => (
+                  <a {...props} target="_blank" rel="noopener noreferrer">
+                    {props.children}
+                  </a>
+                ),
                 code({ node, inline, className, children, ...props }) {
                   const match = /language-(\w+)/.exec(className || '');
                   return !inline && match ? (
