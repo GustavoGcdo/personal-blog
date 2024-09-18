@@ -314,7 +314,7 @@ A﻿pós gravar se deu tudo certo, a tela ficará assim:
   });
 ```
 
-**D﻿ICA:** É﻿ muito impotante que você pare a utilização da camera quando não estiver utilizando para evitar que sua aplicação use muita memória ou tenha problemas futuros ao tentar abrir uma camera que ficou aberta por engano. Por isso chamamos o **stopCamera** nas **linhas 34 e 15** 
+**D﻿ICA:** É﻿ muito importante que você pare a utilização da câmera quando não estiver utilizando para evitar que sua aplicação use muita memória ou tenha problemas futuros ao tentar abrir uma câmera que ficou aberta por engano. Por isso chamamos o **stopCamera** nas **linhas 34 e 15** 
 
 ### Código-fonte
 
