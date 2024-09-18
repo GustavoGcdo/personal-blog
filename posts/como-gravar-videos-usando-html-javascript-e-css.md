@@ -61,7 +61,7 @@ o﻿ código HTML:
       </div>
 ```
 
-**Observação**: Estou mostrando somente o código alterado, caso queira acessar o código completo ***acesse aqui***
+**Observação**: Estou mostrando somente o código alterado, caso queira acessar o código completo ***[acesse aqui](https://github.com/GustavoGcdo/camera-with-js/blob/master/index-camera-video.html)***
 
 ## P﻿asso 2: Recuperando elementos HTML e declaração das variáveis de controle
 
