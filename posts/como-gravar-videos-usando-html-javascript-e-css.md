@@ -1,7 +1,7 @@
 ---
 layout: post
 publishedAt: 2024-09-16 09:04:38
-image: /images/thumb.avif
+image: /images/thumb.png
 title: Como gravar vídeos usando HTML Javascript e CSS
 description: Aprenda como implementar uma câmera e gravar pequenos videos usando
   html, javascript e css de forma simples
