@@ -18,7 +18,7 @@ V﻿imos no post anterior que a câmera é acessada pela api do navegador acessa
 
 ## Vamos ao trabalho
 
-### P﻿asso 1: Ajustando o layout
+## P﻿asso 1: Ajustando o layout
 
 B﻿asicamente a estrutura é a mesma, fiz apenas algumas alterações e adicionei alguns controles que uma câmera de vídeo precisa. A câmera aberta antes de gravar ficou assim: ⁣
 
@@ -63,7 +63,7 @@ o﻿ código HTML:
 
 **Observação**: Estou mostrando somente o código alterado, caso queira acessar o código completo ***acesse aqui***
 
-### P﻿asso 2: Recuperando elementos HTML e declaração das variáveis de controle
+## P﻿asso 2: Recuperando elementos HTML e declaração das variáveis de controle
 
 No início da minha tag *<script>* declarei as variáveis que serão utilizadas para recuperar os elementos referentes a câmera, os controles mais genéricos como botões de abrir/fechar a câmera e logo depois as minhas variáveis de controle que me ajudarão a manter o estado da câmera.
 
@@ -93,7 +93,7 @@ No início da minha tag *<script>* declarei as variáveis que serão utilizadas 
   let intervalId;
 ```
 
-### P﻿asso 3: Iniciar/Pausar a câmera
+## P﻿asso 3: Iniciar/Pausar a câmera
 
 I﻿niciar a câmera é exatamente igual para quando vamos fazer uma câmera apenas para tirar uma foto. Primeiro declaramos uma função que será responsável por chamar a api *getUserMedia* do navegador que caso obtenha sucesso irá retornar um stream no qual vamos direcionar para um objeto de vídeo e também iremos salvar este stream nas nossas variáveis de controle, pois iremos usar tanto para a gravação quanto para parar a câmera quando não estivermos usando.
 
@@ -155,7 +155,7 @@ U﻿samos o método ***startCamera*** sempre que usuário abre a câmera pela pr
   })
 ```
 
-### P﻿asso 4: Gravar um vídeo
+## P﻿asso 4: Gravar um vídeo
 
 Para gravar um vídeo vamos precisar de um objeto chamado **MediaRecorder** ele será o responsável por obter através do stream gerado da câmera pequenos pedaços que chamamos de ***chunks*** que iremos armazenar na memória e quando a gravação terminar juntaremos os *chunks* em um arquivo único no formato *Blob.* 
 
@@ -247,7 +247,7 @@ E iremos chamar a função no clique do botão de stop:
   })
 ```
 
-#### Funções que manipulam o timer (iniciar, formatar e parar)
+### Funções que manipulam o timer (iniciar, formatar e parar)
 
 **Observação:** Estas são apenas funções genéricas geradas pelo chatGPT para formatar os segundos passados no formato 00:00 e atualizar o texto da div do timer.
 
@@ -275,7 +275,7 @@ A﻿pós gravar se deu tudo certo, a tela ficará assim:
 
 ![Pré-visualização do video gravado](/images/apos-gravacao.png "Pré-visualização do video gravado")
 
-#### F﻿unções utilizadas para manipular a tela e resetar os controles
+### F﻿unções utilizadas para manipular a tela e resetar os controles
 
 ```javascript
  resetControls = () => {
@@ -317,13 +317,11 @@ A﻿pós gravar se deu tudo certo, a tela ficará assim:
 
 **D﻿ICA:** É﻿ muito importante que você pare a utilização da câmera quando não estiver utilizando para evitar que sua aplicação use muita memória ou tenha problemas futuros ao tentar abrir uma câmera que ficou aberta por engano. Por isso chamamos o **stopCamera** nas **linhas 34 e 15** 
 
-### Código-fonte
+## Código-fonte
 
 T﻿odo código-fonte tanto deste exemplo quanto do tutorial anterior se encontra neste repositório [github](https://github.com/GustavoGcdo/camera-with-js)
 
-
-
-### Conclusão
+## Conclusão
 
 Antes de finalizar gostaria de agradecer o contato da Michelle Corrêa que sua dúvida resultou na criação deste post. E﻿spero ter ajudado a construir esta solução e aprendido um pouco sobre como funciona a gravação de vídeos usando recursos do navegador. 
 
