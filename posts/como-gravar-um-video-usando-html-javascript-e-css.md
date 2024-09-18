@@ -29,7 +29,7 @@ E﻿ quando está gravando:
 
 ![camera html enquanto grava o video](/images/passo-1-layout-gravando.png "camera html enquanto grava o video")
 
-o﻿ código html: 
+o﻿ código HTML: 
 
 ```html
  <div id="dialog-camera" class="absolute w-screen h-screen bg-stone-900 z-10 hidden">
@@ -63,3 +63,37 @@ o﻿ código html:
 ```
 
 **Observação**: Estou mostrando somente o código alterado, caso queira acessar o código completo ***acesse aqui***
+
+
+
+### P﻿asso 2: Recuperando elementos HTML e declaração das variáveis de controle
+
+No início da minha tag *<script>* declarei as variáveis que serão utilizadas para recuperar os elementos referentes a câmera, os controles mais genéricos como botões de abrir/fechar a câmera e logo depois as minhas variáveis de controle que me ajudaram a manter o estado da câmera de forma simples.
+
+
+
+```javascript
+  // recuperando elementos da camera de video
+  const videoPreview = document.querySelector('#video-preview');
+  const btnCamera = document.querySelector('#btn-recording');
+  const btnStopCamera = document.querySelector('#btn-stop-recording');
+  const videoPreviewContainer = document.querySelector('#video-preview-container');
+  const photoPreviewContainer = document.querySelector('#photo-preview-container');
+  const previewRecorded = document.querySelector('#video-preview-recorded');
+  const timer = document.querySelector('#timer');
+  
+  // recuperando elementos de controle genericos
+  const dialogCamera = document.querySelector('#dialog-camera');
+  const btnToggleCamera = document.querySelector('#btn-toggle-camera');
+  const btnOpenCamera = document.querySelector('#btn-open-camera');
+  const btnCloseDialog = document.querySelector('#btn-close-dialog');
+  const btnRepeat = document.querySelector('#btn-repeat');
+  const btnOk = document.querySelector('#btn-ok');
+  
+  // declarando variaveis de controle
+  let currentFacingMode = 'environment';
+  let mediaRecorder;
+  let streamCamera;
+  let secondsElapsed = 0;
+  let intervalId;
+```
