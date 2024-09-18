@@ -161,4 +161,99 @@ U﻿samos o método ***startCamera*** sempre que usuário abre a câmera pela pr
 
 ### P﻿asso 4: Gravar um vídeo
 
-Para gravar um vídeo vamos precisar de um objeto chamado **MediaRecorder** ele será o responsável por obter através do stream gerado da câmera pequenos pedaços que chamamos de ***chunks*** que iremos armazenar na memória e quando a gravação terminar juntaremos os *chunks* em um arquivo único no formato *Blob*
+Para gravar um vídeo vamos precisar de um objeto chamado **MediaRecorder** ele será o responsável por obter através do stream gerado da câmera pequenos pedaços que chamamos de ***chunks*** que iremos armazenar na memória e quando a gravação terminar juntaremos os *chunks* em um arquivo único no formato *Blob.* 
+
+Para isso acontecer de forma organizada vamos criar algumas funções para separar cada responsabilidade deste processo.
+
+```javascript
+const startRecording = () => {
+    btnCamera.classList.toggle('hidden');
+    btnStopCamera.classList.toggle('hidden');
+    btnToggleCamera.classList.toggle('hidden');
+    timer.classList.toggle('hidden');
+    secondsElapsed = 0;
+
+    mediaRecorder = new MediaRecorder(streamCamera, {
+      mimeType: 'video/webm;codecs=vp8'
+    });
+
+    const chunks = [];
+    mediaRecorder.ondataavailable = (event) => {      
+      chunks.push(event.data);
+    }
+
+    mediaRecorder.onstop = () => {
+      const blob = new Blob(chunks, { type: 'video/mp4' });
+      const urlPreview = URL.createObjectURL(blob);
+      previewRecorded.src = urlPreview;
+
+      photoPreviewContainer.classList.replace('hidden', 'flex');
+      videoPreviewContainer.classList.toggle('hidden');
+
+      mediaRecorder = null;
+      stopTimer();
+    }
+
+    const CHUNK_SIZE = 1000; // 1 seg
+    mediaRecorder.start(CHUNK_SIZE);
+    startTimer();
+  }
+```
+
+A﻿ função principal é a **startRecording** vamos observar cada parte para entender o que está acontecendo.
+
+**L﻿inhas 2-5**: Estamos removendo da tela o botão de gravação e de troca de câmera (já que durante a gravação não é permitido trocar entre as câmeras)
+
+**L﻿inha 6**: Estamos zerando o contador do vídeo.
+
+**L﻿inhas 8-10**: Instanciamos um novo objeto **MediaRecorder** passando o **streamCamera** (nosso stream que está inicializado) e o parâmetro de gravação ***mimeType*** para que ele saiba que é um vídeo e qual codec de gravação. 
+
+**L﻿inhas 12-15**: Declaramos um array para armazenar os pedaços do video (*chunks*) e na função logo após estamos adicionando ao array conforme recebemos os pedaços pelo callback ***ondataavailable*** do objeto **mediaRecorder**.
+
+**L﻿inhas 17-27**: Aqui estamos tratando quando a gravação for parada pelo usuário que é escutada a partir do callback **onstop**. 
+
+Na ***linha 18*** pegamos os chunks e passamos para uma nova instância do objeto Blob com o parâmetro de *video/mp4* que será o formato de saída do vídeo, já na **linha 19** geramos uma URL local para podermos mostrar na pré-visualização do vídeo setado na **linha 20**.
+
+Em sequência estamos:
+
+\- Habilitando o preview do vídeo gravado (linha 22);
+
+\- Escondendo a câmera (linha 23);
+
+\- Zerando o objeto mediaRecorder (linha 25);
+
+\- Parando o timer (linha 26).
+
+
+
+**L﻿inhas 29-31:** Definimos o tamanho do *chunk* em 1 segundo, iniciamos a gravação juntamente com o timer.
+
+
+
+A﻿ função que chama o ***startRecording*** é essa:
+
+```javascript
+ btnCamera.addEventListener('click', () => {
+    startRecording();
+  });
+```
+
+
+
+P﻿ara parar de gravar o vídeo iremos usar a função: 
+
+```javascript
+const stopRecording = () => {
+    streamCamera.getTracks().forEach((track) => track.stop());
+    mediaRecorder.stop();
+  }
+```
+
+E iremos chamar a função no clique do botão de stop:
+
+```javascript
+
+  btnStopCamera.addEventListener('click', () => {
+    stopRecording();
+  })
+```
