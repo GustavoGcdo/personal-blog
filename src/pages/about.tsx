@@ -4,14 +4,28 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import Layout from '../components/Layout';
 
+const calcularIdade = () =>  {
+  const hoje = new Date();
+  const nascimento = new Date('1997-04-18');
+  
+  let idade = hoje.getFullYear() - nascimento.getFullYear();
+  const mes = hoje.getMonth() - nascimento.getMonth();
+
+  if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+      idade--;
+  }
+
+  return idade;
+}
+
 const AboutMe = `
-Meu nome é Gustavo, moro na cidade de Campo Grande/MS, tenho 24 anos e sou casado com essa mulher maravilhosa do meu lado na foto. (sim sou um cara de sorte)
+Olá! Meu nome é Gustavo Candido de Oliveira, tenho ${calcularIdade()} anos e sou casado com essa mulher maravilhosa do meu lado na foto (sim sou um cara de sorte). 
 
-Atualmente curso Sistemas de Informação na UFMS enquanto trabalho em uma empresa de tecnologia, onde sou desenvolvedor Fullstack há 5 anos e também estou a frente da equipe de desenvolvimento.
+Trabalho como desenvolvedor há mais de ${new Date().getFullYear() - 2016} anos. Ao longo da minha trajetória, atuei em projetos web, mobile e desktop. Embora tenha dedicado grande parte da minha carreira à stack JavaScript, que considero minha especialidade, nos últimos anos venho focando no desenvolvimento de APIs com Spring Boot e no mobile com Flutter.
 
-Já estudei e trabalhei com diversas tecnologias dentre elas Java, SpringBoot, Spring MVC, C#, ASP.Net WebForms, ASP.Net MVC e neste momento a minha especialidade é com a stack Nodejs e Angular.
+Nos últimos anos, tenho atuado como líder técnico, contribuindo com a arquitetura de soluções, boas práticas de software, implantação de testes, processos de CI & CD, e treinamentos técnicos para a equipe.
 
-> Acredito que a programação tem poder para melhorar a qualidade de vida das pessoas, e que um bom desenvolvedor resolve problemas! Independente da stack utilizada.
+> Acredito que a programação tem o poder de transformar vidas, e que um bom desenvolvedor é definido pela sua capacidade de resolver problemas, não pela stack que utiliza.
 `;
 
 const About = () => {
