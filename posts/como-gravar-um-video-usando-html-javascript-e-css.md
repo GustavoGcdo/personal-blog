@@ -25,8 +25,6 @@ B﻿asicamente a estrutura é a mesma, fiz apenas algumas alterações e adicion
 
 E﻿ quando está gravando:
 
-
-
 ![camera html enquanto grava o video](/images/passo-1-layout-gravando.png "camera html enquanto grava o video")
 
 o﻿ código HTML: 
@@ -64,13 +62,9 @@ o﻿ código HTML:
 
 **Observação**: Estou mostrando somente o código alterado, caso queira acessar o código completo ***acesse aqui***
 
-
-
 ### P﻿asso 2: Recuperando elementos HTML e declaração das variáveis de controle
 
 No início da minha tag *<script>* declarei as variáveis que serão utilizadas para recuperar os elementos referentes a câmera, os controles mais genéricos como botões de abrir/fechar a câmera e logo depois as minhas variáveis de controle que me ajudarão a manter o estado da câmera.
-
-
 
 ```javascript
   // recuperando elementos da camera de video
@@ -96,4 +90,75 @@ No início da minha tag *<script>* declarei as variáveis que serão utilizadas 
   let streamCamera;
   let secondsElapsed = 0;
   let intervalId;
+
 ```
+
+
+
+### P﻿asso 3: Iniciar/Pausar a câmera 
+
+I﻿niciar a câmera é exatamente igual para quando vamos fazer uma câmera apenas para tirar uma foto. Primeiro declaramos uma função que será responsável por chamar a api *getUserMedia* do navegador que caso obtenha sucesso irá retornar um stream no qual vamos direcionar para um objeto de vídeo e também iremos salvar este stream nas nossas variáveis de controle, pois iremos usar tanto para a gravação quanto para parar a câmera quando não estivermos usando.
+
+
+
+```javascript
+  const startCamera = (facingMode = 'environment') => {
+    stopCamera();
+    navigator.mediaDevices.getUserMedia({
+      video: {
+        facingMode,
+        width: {
+          max: 1980,
+          ideal: 1024
+        },
+        height: {
+          max: 1080,
+          ideal: 768
+        }
+      }
+    }).then((stream) => {
+      videoPreview.srcObject = stream;
+      streamCamera = stream;
+    })
+  }
+ 
+```
+
+**L﻿inha 17:** Note que estamos usando a variável ***streamCamera*** anteriormente declarada para armazenar o stream.
+
+P﻿ara parar a câmera usaremos o stream do vídeo e percorremos cada track chamando o método ***stop*** de cada uma.
+
+```javascript
+ const stopCamera = () => {
+    if (videoPreview.srcObject) {
+      const stream = videoPreview.srcObject;
+      const tracks = stream.getTracks().forEach((track) => track.stop());
+    }
+  }
+```
+
+U﻿samos o método ***startCamera*** sempre que usuário abre a câmera pela primeira vez ou quando ele precisa trocar o modo câmera frontal ou traseira. Como mostra as funções a seguir:
+
+```javascript
+  btnOpenCamera.addEventListener('click', () => {
+    dialogCamera.classList.toggle('hidden');
+    photoPreviewContainer.classList.add('hidden');
+    videoPreviewContainer.classList.remove('hidden');
+
+    startCamera(currentFacingMode);
+  });
+
+  btnToggleCamera.addEventListener('click', () => {
+    if (currentFacingMode == 'environment') {
+      currentFacingMode = 'user';
+    } else {
+      currentFacingMode = 'environment'
+    }
+
+    startCamera(currentFacingMode);
+  })
+```
+
+### P﻿asso 4: Gravar um vídeo
+
+Para gravar um vídeo vamos precisar de um objeto chamado **MediaRecorder** ele será o responsável por obter através do stream gerado da câmera pequenos pedaços que chamamos de ***chunks*** que iremos armazenar na memória e quando a gravação terminar juntaremos os *chunks* em um arquivo único no formato *Blob*
