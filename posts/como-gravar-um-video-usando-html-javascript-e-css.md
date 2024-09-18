@@ -228,8 +228,6 @@ Em sequência estamos:
 
 **L﻿inhas 29-31:** Definimos o tamanho do *chunk* em 1 segundo, iniciamos a gravação juntamente com o timer.
 
-
-
 A﻿ função que chama o ***startRecording*** é essa:
 
 ```javascript
@@ -256,4 +254,44 @@ E iremos chamar a função no clique do botão de stop:
   btnStopCamera.addEventListener('click', () => {
     stopRecording();
   })
+```
+
+#### Funções que manipulam o timer (iniciar, formatar e parar)
+
+**Observação:** Estas são apenas funções genéricas geradas pelo chatGPT para formatar os segundos passados no formato 00:00 e atualizar o texto da div do timer.
+
+```javascript
+  const formatTime = (seconds) => {
+    const minutes = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+    const secs = (seconds % 60).toString().padStart(2, '0');
+    return `${minutes}:${secs}`;
+  }
+
+  const startTimer = () => {
+    intervalId = setInterval(() => {
+      secondsElapsed++;
+      timer.textContent = formatTime(secondsElapsed);
+    }, 1000);
+  }
+
+  const stopTimer = () => {
+    timer.textContent = '00:00';
+    clearInterval(intervalId);
+  }
+```
+
+
+
+#### F﻿unções utilizadas para manipular a tela e resetar os controles
+
+```javascript
+ resetControls = () => {
+    btnCamera.classList.remove('hidden');
+    btnStopCamera.classList.add('hidden');
+    btnToggleCamera.classList.remove('hidden');
+
+    timer.classList.add('hidden');
+    secondsElapsed = 0;
+    stopTimer();
+  }
 ```
