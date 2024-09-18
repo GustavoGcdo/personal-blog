@@ -68,7 +68,7 @@ o﻿ código HTML:
 
 ### P﻿asso 2: Recuperando elementos HTML e declaração das variáveis de controle
 
-No início da minha tag *<script>* declarei as variáveis que serão utilizadas para recuperar os elementos referentes a câmera, os controles mais genéricos como botões de abrir/fechar a câmera e logo depois as minhas variáveis de controle que me ajudaram a manter o estado da câmera de forma simples.
+No início da minha tag *<script>* declarei as variáveis que serão utilizadas para recuperar os elementos referentes a câmera, os controles mais genéricos como botões de abrir/fechar a câmera e logo depois as minhas variáveis de controle que me ajudarão a manter o estado da câmera.
 
 
 
