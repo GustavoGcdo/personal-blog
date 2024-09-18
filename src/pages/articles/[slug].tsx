@@ -56,6 +56,7 @@ const ArticlePage = ({ article }: Props) => {
                   return !inline && match ? (
                     <SyntaxHighlighter
                       style={materialDark}
+                      showLineNumbers
                       language={match[1] || 'javascript'}
                       PreTag="div"
                       {...props}
