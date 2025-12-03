@@ -18,7 +18,7 @@ Minha abordagem foi diferente: entender a arquitetura e a aplicação mais a fun
 
 N﻿este post vou explicar como eu encontrei o gargalo de custo e como cheguei no resultado mostrado na imagem abaixo
 
-![](/images/frame-5-2-.png)
+![Comparativo dos resumos de faturamento do firebase antes e depois da redução de custo](/images/frame-5-2-.png "Comparativo dos resumos de faturamento do firebase antes e depois da redução de custo")
 
 
 
