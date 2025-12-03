@@ -1,7 +1,7 @@
 ---
 layout: post
 publishedAt: 2025-12-03 03:21:25
-image: /images/chatgpt-image-3-de-dez.-de-2025-15_42_37.png
+image: /images/gemini_generated_image_rwvzzerwvzzerwvz.png
 title: Como eu reduzi o custo de uma infraestrutura de R$ 11.000 para R$ 900 de
   um cliente
 description: Um cliente me procurou porque a conta do Firebase passou dos R$ 11
