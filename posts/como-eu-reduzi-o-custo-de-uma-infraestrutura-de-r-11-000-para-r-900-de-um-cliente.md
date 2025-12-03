@@ -7,6 +7,7 @@ title: Como eu reduzi o custo de uma infraestrutura de R$ 11.000 para R$ 900 de
 description: Um cliente me procurou porque a conta do Firebase passou dos R$ 11
   mil por mês — e ninguém sabia exatamente por quê
 ---
+## Introdução
 A aplicação consistia em vendas de ingressos esportivos e estava utilizando a infraestrutura do Google: Firebase, Firestore (Banco de dados principal), Cloud Functions e Storage 
 e o frontend/backend na Vercel com Next.js (Edge Functions e server components).
 
@@ -14,7 +15,6 @@ Ninguém sabia exatamente o porquê, mas o custo era alto e estava aumentando co
 
 Minha abordagem foi diferente: entender a arquitetura e a aplicação mais a fundo, encontrar, medir e corrigir erros antes de adicionar mais complexidade.
 
-- - -
 
 ## Primeiro passo: análise da arquitetura
 
@@ -29,8 +29,6 @@ Para entender o que estava acontecendo, comecei mapeando:
 Como eu não conhecia a plataforma a fundo e precisava ser rápido, procurei inicialmente por gargalos óbvios. Fiz algumas melhorias, mas o impacto ainda não foi tão significativo quanto eu gostaria.\
 Ficou claro que havia algo mais profundo acontecendo.
 
-- - -
-
 ## Investigando utilização × custos
 
 Com cerca de **11 mil usuários diários**, era esperado um volume moderado de queries.\
@@ -43,7 +41,6 @@ E a grande pergunta era:
 
 > **Será que todos esses dados estavam realmente sendo utilizados?**
 
-- - -
 
 ## O ponto crítico: o catálogo público
 
@@ -58,8 +55,6 @@ E foi aí que encontrei o caos:
 * Não havia paginação nem filtros no backend: tudo era filtrado no frontend.
 
 Em resumo: **muitos dados, muitas vezes, sem necessidade**.
-
-- - -
 
 ## Solução: reconstruir a tela com engenharia, não gambiarra
 
@@ -82,7 +77,6 @@ Esse cache ajudou a reduzir chamadas repetidas de requisições idênticas.
 Com o tempo, ficou evidente que houve uma degradação daquela tela e da forma como o código tinha sido escrito — inclusive muito código gerado por IA sem revisão.\
 Sei que muitas vezes temos pressa para implementar, e a pressão por entregas rápidas acontece. Mas, nesse caso, a falta de boas práticas e de um código manutenível custou **muito dinheiro**.
 
-- - -
 
 ## Resultado: economia imediata
 
@@ -93,7 +87,6 @@ Uma redução acima de **90%**, sem mudar nenhuma funcionalidade da aplicação 
 
 Além da economia, o sistema ficou mais rápido e mais fácil de manter.
 
-- - -
 
 ## Conclusão
 
