@@ -8,12 +8,24 @@ description: Um cliente me procurou porque a conta do Firebase passou dos R$ 11
   mil por mês — e ninguém sabia exatamente por quê
 ---
 ## Introdução
+
 A aplicação consistia em vendas de ingressos esportivos e estava utilizando a infraestrutura do Google: Firebase, Firestore (Banco de dados principal), Cloud Functions e Storage 
 e o frontend/backend na Vercel com Next.js (Edge Functions e server components).
 
 Ninguém sabia exatamente o porquê, mas o custo era alto e estava aumentando consideravelmente em pouco tempo. Parte da equipe já tentava reduzir este custo, mas algumas propostas estavam se baseando em adicionar componentes de arquitetura — como implementar um sistema de cache distribuído com Redis — sem validar, na minha visão, o problema central.
 
 Minha abordagem foi diferente: entender a arquitetura e a aplicação mais a fundo, encontrar, medir e corrigir erros antes de adicionar mais complexidade.
+
+N﻿este post vou explicar como eu encontrei o gargalo de custo e como cheguei no resultado mostrado na imagem abaixo
+
+![](/images/frame-5-2-.png)
+
+
+
+
+
+
+
 
 
 ## Primeiro passo: análise da arquitetura
@@ -40,7 +52,6 @@ Isso indicava que havia um problema sério nessas consultas. Além de serem muit
 E a grande pergunta era:
 
 > **Será que todos esses dados estavam realmente sendo utilizados?**
-
 
 ## O ponto crítico: o catálogo público
 
@@ -77,16 +88,18 @@ Esse cache ajudou a reduzir chamadas repetidas de requisições idênticas.
 Com o tempo, ficou evidente que houve uma degradação daquela tela e da forma como o código tinha sido escrito — inclusive muito código gerado por IA sem revisão.\
 Sei que muitas vezes temos pressa para implementar, e a pressão por entregas rápidas acontece. Mas, nesse caso, a falta de boas práticas e de um código manutenível custou **muito dinheiro**.
 
-
 ## Resultado: economia imediata
 
 **Antes da refatoração:** R$ 300 por dia\
 **Depois da refatoração:** R$ 29–30 por dia
 
+![Relatorio mostrando o custo diário reduzido de um dia R$ 300 para o outro R$ 28](/images/screenshot_3.png "Relatorio mostrando o custo diário reduzido de um dia para o outro")
+
+
+
 Uma redução acima de **90%**, sem mudar nenhuma funcionalidade da aplicação e sem adicionar novos componentes à arquitetura — apenas escrevendo o software da maneira correta.
 
 Além da economia, o sistema ficou mais rápido e mais fácil de manter.
-
 
 ## Conclusão
 
