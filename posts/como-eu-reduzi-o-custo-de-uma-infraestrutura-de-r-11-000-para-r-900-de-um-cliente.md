@@ -1,9 +1,9 @@
 ---
 layout: post
-publishedAt: 2025-12-03 03:21:25
-image: /images/thumb-post-reducao-custo.png
-title: Como eu reduzi o custo de uma infraestrutura de R$ 11.000 para R$ 900 de
-  um cliente
+publishedAt: 2025-12-23 11:10:42
+image: /images/ash-integrated-services-exploring-the-strategic-benefits-of-integrated-mechanical-and-electrical-engineering-for-the-residential-care-industry.2.png
+title: Como reduzi os custos de infraestrutura em 90% usando apenas boas
+  práticas de software
 description: Um cliente me procurou porque a conta do Firebase passou dos R$ 11
   mil por mês — e ninguém sabia exatamente por quê
 ---
@@ -19,14 +19,6 @@ Minha abordagem foi diferente: entender a arquitetura e a aplicação mais a fun
 N﻿este post vou explicar como eu encontrei o gargalo de custo e como cheguei no resultado mostrado na imagem abaixo
 
 ![Comparativo dos resumos de faturamento do firebase antes e depois da redução de custo](/images/frame-5-2-.png "Comparativo dos resumos de faturamento do firebase antes e depois da redução de custo")
-
-
-
-
-
-
-
-
 
 ## Primeiro passo: análise da arquitetura
 
@@ -74,6 +66,31 @@ Em resumo: **muitos dados, muitas vezes, sem necessidade**.
 Reescrevi a query utilizando um `where` mais restrito e com `select`, trazendo somente os atributos necessários para os cards.\
 Removi completamente o Base64, que além de ser um problema, nem estava sendo utilizado.
 
+```javascript
+// Exemplo de consulta no firebase usando select + dbadmin.
+const snapshot = await dbAdmin
+      .collection(collectionName)
+      .where('display', '==', true)
+      .select(
+        'name',
+        'eventUrl',
+        'eventCategory',
+        'city',
+        'state',
+        'organizerName',
+        'initialDate',
+        'finalDate',
+        'finished',
+        'eventDay',
+        'eventMounth',
+        'hour',
+        'display',
+      )
+      .get();
+```
+
+
+
 ### Refatoração dos componentes
 
 Os cards passaram a exibir exclusivamente os dados vindos da query da tela, apenas uma vez.\
@@ -85,6 +102,12 @@ Com isso, a tela ficou mais simples, mais leve e muito mais fácil de manter.
 Na tela principal, além de termos agora uma fonte única de dados, também padronizei o uso do `fetch`, recomendado pelo Next.js, incluindo seu sistema de cache nativo.\
 Esse cache ajudou a reduzir chamadas repetidas de requisições idênticas.
 
+```javascript
+// Exemplo de chamada utilizando fetch + cache do next
+const resHome = await fetch('api/eventos', { next: { revalidate: 300 } });
+
+```
+
 Com o tempo, ficou evidente que houve uma degradação daquela tela e da forma como o código tinha sido escrito — inclusive muito código gerado por IA sem revisão.\
 Sei que muitas vezes temos pressa para implementar, e a pressão por entregas rápidas acontece. Mas, nesse caso, a falta de boas práticas e de um código manutenível custou **muito dinheiro**.
 
@@ -94,8 +117,6 @@ Sei que muitas vezes temos pressa para implementar, e a pressão por entregas r�
 **Depois da refatoração:** R$ 29–30 por dia
 
 ![Relatorio mostrando o custo diário reduzido de um dia R$ 300 para o outro R$ 28](/images/screenshot_3.png "Relatorio mostrando o custo diário reduzido de um dia para o outro")
-
-
 
 Uma redução acima de **90%**, sem mudar nenhuma funcionalidade da aplicação e sem adicionar novos componentes à arquitetura — apenas escrevendo o software da maneira correta.
 
