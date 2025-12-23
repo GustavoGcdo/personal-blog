@@ -45,7 +45,7 @@ E a grande pergunta era:
 
 > **Será que todos esses dados estavam realmente sendo utilizados?**
 
-## O ponto crítico: o catálogo público
+## O ponto crítico: o catálogo público de eventos
 
 Ao rastrear as queries mais caras, cheguei à principal funcionalidade do sistema: um **catálogo público**, onde cards listam informações para que os usuários visualizem os produtos — bem semelhante a um catálogo comum com imagem e dados básicos.
 
@@ -59,9 +59,9 @@ E foi aí que encontrei o caos:
 
 Em resumo: **muitos dados, muitas vezes, sem necessidade**.
 
-## Solução: reconstruir a tela com engenharia, não gambiarra
+## Solução: refatoração da tela removendo toda a gambiarra e utilizando boas práticas de software
 
-### Remodelagem da consulta
+### 1° Remodelagem da consulta
 
 Reescrevi a query utilizando um `where` mais restrito e com `select`, trazendo somente os atributos necessários para os cards.\
 Removi completamente o Base64, que além de ser um problema, nem estava sendo utilizado.
@@ -89,15 +89,13 @@ const snapshot = await dbAdmin
       .get();
 ```
 
-
-
-### Refatoração dos componentes
+### 2° Refatoração dos componentes
 
 Os cards passaram a exibir exclusivamente os dados vindos da query da tela, apenas uma vez.\
 Eles deixaram de fazer requests internas, evitando mistura de responsabilidades.\
 Com isso, a tela ficou mais simples, mais leve e muito mais fácil de manter.
 
-### Padronização do acesso aos dados e cache
+### 3° Padronização do acesso aos dados e cache
 
 Na tela principal, além de termos agora uma fonte única de dados, também padronizei o uso do `fetch`, recomendado pelo Next.js, incluindo seu sistema de cache nativo.\
 Esse cache ajudou a reduzir chamadas repetidas de requisições idênticas.
@@ -105,7 +103,6 @@ Esse cache ajudou a reduzir chamadas repetidas de requisições idênticas.
 ```javascript
 // Exemplo de chamada utilizando fetch + cache do next
 const resHome = await fetch('api/eventos', { next: { revalidate: 300 } });
-
 ```
 
 Com o tempo, ficou evidente que houve uma degradação daquela tela e da forma como o código tinha sido escrito — inclusive muito código gerado por IA sem revisão.\
