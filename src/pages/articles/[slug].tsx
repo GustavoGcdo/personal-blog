@@ -1,21 +1,24 @@
 import 'moment/locale/pt-br';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
+import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import Comments from '../../components/Comments';
+import ImageModal from '../../components/ImageModal';
 import Layout from '../../components/Layout';
+import { Post } from '../../interfaces';
 import { getPostBySlug, getSortedPostsData } from '../../lib/posts';
 import { countReadMinutes } from '../../lib/word-read-calc';
-import { useAuth0 } from '@auth0/auth0-react';
-import Comments from '../../components/Comments';
-import { Post } from '../../interfaces';
 
 type Props = {
   article: Post;
 };
 
 const ArticlePage = ({ article }: Props) => {
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+
   return (
     <>
       <NextSeo
@@ -51,6 +54,18 @@ const ArticlePage = ({ article }: Props) => {
           <div className="mt-5 prose prose-lg prose-pre:bg-zinc-800 prose-pre:px-2 prose-pre:py-0 dark:prose-invert prose-p:font-sans max-w-none mx-auto prose-h1:mt-10 prose-img:max-w-4/5 prose-img:mx-auto">
             <ReactMarkdown
               components={{
+                img: ({ node, ...props }) => (
+                  <img
+                    {...props}
+                    className="cursor-pointer hover:opacity-90 transition-opacity"
+                    onClick={() =>
+                      setSelectedImage({
+                        src: props.src || '',
+                        alt: props.alt || '',
+                      })
+                    }
+                  />
+                ),
                 a: ({ node, ...props }) => (
                   <a {...props} target="_blank" rel="noopener noreferrer">
                     {props.children}
@@ -81,6 +96,13 @@ const ArticlePage = ({ article }: Props) => {
           </div>
         </div>
         <Comments />
+        {selectedImage && (
+          <ImageModal
+            src={selectedImage.src}
+            alt={selectedImage.alt}
+            onClose={() => setSelectedImage(null)}
+          />
+        )}
       </Layout>
     </>
   );

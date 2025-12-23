@@ -8,7 +8,7 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {      
-      primary: ['var(--font-staatliches)'],
+      primary: ['Staatliches', 'system-ui', 'sans-serif'],
     },
     extend: {
       typography: (theme) => ({

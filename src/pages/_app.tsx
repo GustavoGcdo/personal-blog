@@ -1,4 +1,4 @@
-import { Staatliches } from '@next/font/google';
+import { Auth0Provider } from '@auth0/auth0-react';
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
@@ -10,13 +10,6 @@ import DEFAULT_SEO from '../../next-seo.config';
 import Analytics from '../components/Analytics';
 import * as gtag from '../lib/gtag';
 import '../styles/globals.css';
-import { Auth0Provider } from '@auth0/auth0-react';
-
-const staatliches = Staatliches({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-staatliches',
-});
 
 const CustomApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
@@ -36,7 +29,6 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
       <Auth0Provider
         clientId={process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID || ''}
         domain={process.env.NEXT_PUBLIC_AUTH0_DOMAIN || ''}
-        
       >
         <Head>
           <title>Gustavo Oliveira</title>
@@ -50,7 +42,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
         </Head>
 
         <ThemeProvider attribute="class" enableSystem={false}>
-          <main className={`${staatliches.variable} font-sans`}>
+          <main className={`font-sans font-Staatliches`}>
             <Component {...pageProps} />
           </main>
         </ThemeProvider>

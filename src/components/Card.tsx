@@ -17,7 +17,7 @@ const Card = ({ article }: Props) => {
       </div>
       <div className="flex flex-col sm:px-8 px-4 max-w-2xl w-full">
         <Link href={`/articles/${article.slug}`} passHref>
-          <span className="block sm:text-2xl text-lg font-bold hover:cursor-pointer hover:underline hover:underline-offset-2">
+          <span className="block sm:text-2xl text-lg font-semibold hover:cursor-pointer hover:underline hover:underline-offset-2">
             {article.title}
           </span>
         </Link>

@@ -6,7 +6,7 @@ html,
 body, main {
   padding: 0;
   margin: 0;
-  height: 100vh;
+  height: 100vh;  
 }
 
 body > div:first-child {  
@@ -42,4 +42,12 @@ a {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(155, 155, 155);
+}
+
+@font-face {
+  font-family: 'Staatliches';
+  src: url('/fonts/Staatliches-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
